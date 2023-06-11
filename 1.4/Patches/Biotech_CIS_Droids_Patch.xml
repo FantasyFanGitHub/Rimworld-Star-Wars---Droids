@@ -1,0 +1,950 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <!--<mods>
+      <li>Outer Rim - Separatists</li>
+    </mods>
+    <nomatch Class="PatchOperationFindMod">-->
+      <mods>
+        <li>Biotech</li>
+      </mods>
+      <match Class="PatchOperationFindMod">
+        <mods>
+          <li>[JDS] StarWars - The Separatist Droid Army</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+          <operations>
+            <!--combat droids-->
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="JDSCIS_Pistoeka_Sotage_Droid"]/statBases</xpath>
+              <value>
+                <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+                <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid" or defName="JDSCIS_B1_Security_Droid" or defName="JDSCIS_B1_Commander_Droid" or defName="JDSCIS_T1_Tactical_Droid" or defName="JDSCIS_ST_Super_Tactical_Droid" or defName="JDSCIS_BX_Commando_Droid" or defName="JDSCIS_IG-100_MagnaGuards" or defName="JDSCIS_Droideka_Droid" or defName="JDSCIS_Droideka_Sharpshooter_Droid"]/statBases</xpath>
+              <value>
+                <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+                <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="JDSCIS_B2_Super_Battle_Droid" or defName="JDSCIS_B2_HA_Super_Battle_Droid"]/statBases</xpath>
+              <value>
+                <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+                <ArmorRating_Sharp>0.56</ArmorRating_Sharp>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="JDSCIS_AQ_Battle_Droid" or defName="JDSCIS_Demolition_Droid" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid" or defName="JDSCIS_LR-57_Combat_Droid"]/statBases</xpath>
+              <value>
+                <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+                <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid" or defName="JDSCIS_B1_Security_Droid" or defName="JDSCIS_B1_Commander_Droid" or defName="JDSCIS_BX_Commando_Droid" or defName="JDSCIS_T1_Tactical_Droid" or defName="JDSCIS_ST_Super_Tactical_Droid" or defName="JDSCIS_Droideka_Droid" or defName="JDSCIS_Droideka_Sharpshooter_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <Steel>15</Steel>
+                </butcherProducts>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="JDSCIS_B2_Super_Battle_Droid" or defName="JDSCIS_B2_HA_Super_Battle_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <Steel>20</Steel>
+                  <Plasteel>5</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="JDSCIS_Pistoeka_Sotage_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <Steel>10</Steel>
+                </butcherProducts>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="JDSCIS_AQ_Battle_Droid" or defName="JDSCIS_Demolition_Droid" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid" or defName="JDSCIS_LR-57_Combat_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <Steel>30</Steel>
+                  <Plasteel>10</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+
+            <!--mechanoid creation-->
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_Pistoeka_Sotage_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_Pistoeka_Sotage_Droid_Recipe</defName>
+                  <label>assembly Pistoeka Sotage Droid</label>
+                  <description>assembly a Pistoeka Sotage Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_Pistoeka_Sotage_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_Pistoeka_Sotage_Droid>1</JDSCIS_Pistoeka_Sotage_Droid>
+                  </products>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>50</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreBasic</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_B1_Battle_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_B1_Battle_Droid_Recipe</defName>
+                  <label>assembly B1 Battle Droid</label>
+                  <description>assembly a B1 Battle Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_B1_Battle_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_B1_Battle_Droid>1</JDSCIS_B1_Battle_Droid>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>4</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_B1_Security_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_B1_Security_Droid_Recipe</defName>
+                  <label>assembly B1 Security Droid</label>
+                  <description>assembly a B1 Security Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_B1_Security_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_B1_Security_Droid>1</JDSCIS_B1_Security_Droid>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>4</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_B1_Commander_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_B1_Commander_Droid_Recipe</defName>
+                  <label>assembly B1 Commander Droid</label>
+                  <description>assembly a B1 Security Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_B1_Security_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_B1_Commander_Droid>1</JDSCIS_B1_Commander_Droid>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>4</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_BX_Commando_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_BX_Commando_Droid_Recipe</defName>
+                  <label>assembly BX Commando Droid</label>
+                  <description>assembly a BX Commando Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_BX_Commando_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_BX_Commando_Droid>1</JDSCIS_BX_Commando_Droid>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>4</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_IG-100_MagnaGuards_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_IG-100_MagnaGuards_Recipe</defName>
+                  <label>assembly IG-100 MagnaGuards Droid</label>
+                  <description>assembly a IG-100 MagnaGuards Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_IG-100_MagnaGuards</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_IG-100_MagnaGuards>1</JDSCIS_IG-100_MagnaGuards>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>4</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_T1_Tactical_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_T1_Tactical_Droid_Recipe</defName>
+                  <label>assembly T1 Tactical Droid</label>
+                  <description>assembly a T1 Tactical Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_T1_Tactical_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_T1_Tactical_Droid>1</JDSCIS_T1_Tactical_Droid>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>6</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_ST_Super_Tactical_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_ST_Super_Tactical_Droid_Recipe</defName>
+                  <label>assembly ST Super Tactical Droid</label>
+                  <description>assembly a T1 Tactical Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_ST_Super_Tactical_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_ST_Super_Tactical_Droid>1</JDSCIS_ST_Super_Tactical_Droid>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>6</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_B2_Super_Battle_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_B2_Super_Battle_Droid_Recipe</defName>
+                  <label>assembly B2 Super Battle Droid</label>
+                  <description>assembly a B2 Super Battle Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_B2_Super_Battle_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_B2_Super_Battle_Droid>1</JDSCIS_B2_Super_Battle_Droid>
+                  </products>
+                  <gestationCycles>5</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>100</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>6</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_B2_HA_Super_Battle_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_B2_HA_Super_Battle_Droid_Recipe</defName>
+                  <label>assembly B2 HA Super Battle Droid</label>
+                  <description>assembly a B2 HA Super Battle Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_B2_HA_Super_Battle_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_B2_HA_Super_Battle_Droid>1</JDSCIS_B2_HA_Super_Battle_Droid>
+                  </products>
+                  <gestationCycles>5</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>100</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>6</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_AQ_Battle_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_AQ_Battle_Droid_Recipe</defName>
+                  <label>assembly AQ Battle Droid</label>
+                  <description>assembly a AQ Battle Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_AQ_Battle_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>HighMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_AQ_Battle_Droid>1</JDSCIS_AQ_Battle_Droid>
+                  </products>
+                  <gestationCycles>8</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>255</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>255</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreHigh</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>8</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_Droideka_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_Droideka_Droid_Recipe</defName>
+                  <label>assembly Droideka Droid</label>
+                  <description>assembly a Droideka Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_Droideka_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_Droideka_Droid>1</JDSCIS_Droideka_Droid>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>4</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_Droideka_Sharpshooter_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_Droideka_Sharpshooter_Droid_Recipe</defName>
+                  <label>assembly Droideka Sharpshooter Droid</label>
+                  <description>assembly a Droideka Sharpshooter Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_Droideka_Sharpshooter_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_Droideka_Sharpshooter_Droid>1</JDSCIS_Droideka_Sharpshooter_Droid>
+                  </products>
+                  <gestationCycles>2</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>75</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreRegular</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>4</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_Demolition_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_Demolition_Droid_Recipe</defName>
+                  <label>assembly Demolition Droid</label>
+                  <description>assembly a Demolitio _Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_Demolition_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>HighMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_Demolition_Droid>1</JDSCIS_Demolition_Droid>
+                  </products>
+                  <gestationCycles>8</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>255</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>255</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreHigh</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>8</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_DSD1_Dwarf_Spider_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_DSD1_Dwarf_Spider_Droid_Recipe</defName>
+                  <label>assembly DSD1 Dwarf Spider Droid</label>
+                  <description>assembly a DSD1 Dwarf Spider Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_DSD1_Dwarf_Spider_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>HighMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_DSD1_Dwarf_Spider_Droid>1</JDSCIS_DSD1_Dwarf_Spider_Droid>
+                  </products>
+                  <gestationCycles>8</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>255</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>255</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreHigh</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>8</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/RecipeDef[defName="JDSCIS_LR-57_Combat_Droid_Recipe"]</xpath>
+              <value>
+                <RecipeDef ParentName="JDSCISBaseDroidRecipe">
+                  <defName>JDSCIS_LR-57_Combat_Droid_Recipe</defName>
+                  <label>assembly LR-57 Combat Droid</label>
+                  <description>assembly a LR-57 Combat Droid.</description>
+                  <descriptionHyperlinks>
+                    <ThingDef>JDSCIS_LR-57_Combat_Droid</ThingDef>
+                  </descriptionHyperlinks>
+                  <researchPrerequisite>HighMechtech</researchPrerequisite>
+                  <products>
+                    <JDSCIS_LR-57_Combat_Droid>1</JDSCIS_LR-57_Combat_Droid>
+                  </products>
+                  <gestationCycles>8</gestationCycles>
+                  <ingredients>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Steel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>255</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>Plasteel</li>
+                        </thingDefs>
+                      </filter>
+                      <count>255</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>SubcoreHigh</li>
+                        </thingDefs>
+                      </filter>
+                      <count>1</count>
+                    </li>
+                    <li>
+                      <filter>
+                        <thingDefs>
+                          <li>ComponentIndustrial</li>
+                        </thingDefs>
+                      </filter>
+                      <count>8</count>
+                    </li>
+                  </ingredients>
+                </RecipeDef>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>/Defs/RecipeDef[defName="ResurrectMediumMech"]/fixedIngredientFilter/thingDefs</xpath>
+              <value>
+                <li>Corpse_JDSCIS_Pistoeka_Sotage_Droid</li>
+                <li>Corpse_JDSCIS_B1_Battle_Droid</li>
+                <li>Corpse_JDSCIS_B1_Security_Droid</li>
+                <li>Corpse_JDSCIS_B1_Commander_Droid</li>
+                <li>Corpse_JDSCIS_BX_Commando_Droid</li>
+                <li>Corpse_JDSCIS_IG-100_MagnaGuards</li>
+                <li>Corpse_JDSCIS_T1_Tactical_Droid</li>
+                <li>Corpse_JDSCIS_ST_Super_Tactical_Droid</li>
+                <li>Corpse_JDSCIS_B2_Super_Battle_Droid</li>
+                <li>Corpse_JDSCIS_B2_HA_Super_Battle_Droid</li>
+                <li>Corpse_JDSCIS_Droideka_Droid</li>
+                <li>Corpse_JDSCIS_Droideka_Sharpshooter_Droid</li>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>/Defs/RecipeDef[defName="ResurrectHeavyMech"]/fixedIngredientFilter/thingDefs</xpath>
+              <value>
+                <li>Corpse_JDSCIS_LR-57_Combat_Droid_Recipe</li>
+                <li>Corpse_JDSCIS_DSD1_Dwarf_Spider_Droid_Recipe</li>
+                <li>Corpse_JDSCIS_Demolition_Droid_Recipe</li>
+                <li>Corpse_JDSCIS_AQ_Battle_Droid_Recipe</li>
+              </value>
+            </li>
+          </operations>
+        </match>
+      </match>
+    <!--</nomatch>-->
+  </Operation>
+
+  
+  
+</Patch>

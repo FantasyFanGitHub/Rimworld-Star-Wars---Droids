@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThinkTreeDef>
+    <defName>SWD_Mechanoids_Machine_WeirdEater</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+        <li Class="ThinkNode_QueuedJob"/>
+        <li Class="ThinkNode_Priority">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>DraftedOrder</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_MoveToStandable" />
+                <!--<li Class="JobGiver_Orders"/>-->
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+        <!-- Satisfy basic needs -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>VEF_SatisfyBasicNeedsWeirdEater</treeDef>
+        </li>
+        <li Class="ThinkNode_Tagger">
+          <tagToGive>Idle</tagToGive>
+          <subNodes>
+            <!-- Wander -->
+            <li Class="JobGiver_WanderColony">
+              <maxDanger>None</maxDanger>
+            </li>
+          </subNodes>
+        </li>
+        <!-- Idle error -->
+        <li Class="JobGiver_IdleError"/>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+  <ThinkTreeDef>
+    <defName>VFE_Mechanoids_MachineWandering_Draftable</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+        <li Class="VFEMech.ThinkNode_ConditionalHasPower">
+          <subNodes>
+            <!-- Main colonist behavior core -->
+            <li Class="ThinkNode_Priority">
+              <subNodes>
+                <li Class="ThinkNode_QueuedJob"/>
+                <li Class="ThinkNode_Priority">
+                  <subNodes>
+                    <li Class="ThinkNode_Tagger">
+                      <tagToGive>DraftedOrder</tagToGive>
+                      <subNodes>
+                        <li Class="JobGiver_MoveToStandable" />
+                        <!--<li Class="JobGiver_Orders"/>-->
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+                <li Class="VFE.Mechanoids.AI.JobGivers.JobGiver_Recharge"/>
+                <li Class="VFE.Mechanoids.AI.JobGivers.JobGiver_ReturnToStation"/>
+                <li Class="JobGiver_Work"/>
+                <li Class="ThinkNode_Tagger">
+                  <tagToGive>Idle</tagToGive>
+                  <subNodes>
+                    <!-- Wander -->
+                    <li Class="JobGiver_WanderColony">
+                      <maxDanger>None</maxDanger>
+                    </li>
+                  </subNodes>
+                </li>
+                <li Class="VFE.Mechanoids.AI.JobGivers.JobGiver_StandIdle"/>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+        <li Class="VFEMech.ThinkNode_ConditionalHasPower">
+          <invert>true</invert>
+          <subNodes>
+            <li Class="VFE.Mechanoids.AI.JobGivers.JobGiver_Recharge"/>
+            <li Class="VFE.Mechanoids.AI.JobGivers.JobGiver_ReturnToStation"/>
+          </subNodes>
+        </li>
+
+        <li Class="VFE.Mechanoids.AI.JobGivers.JobGiver_StandIdle"/>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+</Defs>

@@ -1,0 +1,1014 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Biotech</li>
+    </mods>
+    <!--<nomatch Class="PatchOperationFindMod">
+      <mods>
+        <li>Outer Rim - Separatists</li>
+      </mods>-->
+      <nomatch Class="PatchOperationFindMod">
+        <mods>
+          <li>Vanilla Factions Expanded - Mechanoids</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+          <!--all droids-->
+          <operations>
+            <!--work droids-->
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/WorkGiverDef[defName="Research" or defName="LongRangeScan" or defName="GroundPenetratingScan"]/canBeDoneByMechs</xpath>
+              <value>
+                <canBeDoneByMechs>true</canBeDoneByMechs>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_TC_Protocol_Droid" or defName="SWD_3PO_Protocol_Droid" or defName="SWD_3PX_Protocol_Droid" or defName="SWD_RA-7_Protocol_Droid" or defName="SWD_RQ_Protocol_Droid" or defName="SWD_DG-1B_Catering_Droid" or defName="SWD_DUM_Pit_Droid" or defName="SWD_WA-7_Waitress_Droid" or defName="SWD_R2_Astromech_Droid" or defName="SWD_R3_Astromech_Droid" or defName="SWD_R4_Astromech_Droid" or defName="SWD_R5_Astromech_Droid" or defName="SWD_R6_Astromech_Droid" or defName="SWD_C1_Astromech_Droid" or defName="SWD_BB_Astromech_Droid" or defName="SWD_MSE-6_Repair_Droid" or defName="SWD_E-XD_Infiltrator_Droid" or defName="SWD_D-Wing_Air_Support_Droid" or defName="SWD_KX_Security_Droid" or defName="SWD_Viper_Probe_Droid" or defName="SWD_DT_Sentry_Droid" or defName="SWD_GU_Guardian_Police_Droid" or defName="SWD_IT-O_Interrogator_Droid"]</xpath>
+              <value>
+                <thingClass>VFEMech.Machine</thingClass>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[@Name="SWD_BaseDroid"]/statBases/ArmorRating_Blunt</xpath>
+              <value>
+                <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[@Name="SWD_BaseDroid"]/statBases/ArmorRating_Sharp</xpath>
+              <value>
+                <ArmorRating_Sharp>0.22</ArmorRating_Sharp>
+              </value>
+            </li>
+
+            <!--only work droids-->
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_TC_Protocol_Droid" or defName="SWD_3PO_Protocol_Droid" or defName="SWD_3PX_Protocol_Droid" or defName="SWD_RA-7_Protocol_Droid" or defName="SWD_RQ_Protocol_Droid" or defName="SWD_DG-1B_Catering_Droid" or defName="SWD_DUM_Pit_Droid" or defName="SWD_WA-7_Waitress_Droid" or defName="SWD_R2_Astromech_Droid" or defName="SWD_R3_Astromech_Droid" or defName="SWD_R4_Astromech_Droid" or defName="SWD_R5_Astromech_Droid" or defName="SWD_R6_Astromech_Droid" or defName="SWD_C1_Astromech_Droid" or defName="SWD_BB_Astromech_Droid" or defName="SWD_MSE-6_Repair_Droid"]</xpath>
+              <value>
+                <comps>
+                  <li Class="VFE.Mechanoids.CompProperties_Machine">
+                    <hoursActive>72</hoursActive>
+                  </li>
+                </comps>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_DLC-13_Mining_Droid"]</xpath>
+              <value>
+                <comps>
+                  <li Class="VFE.Mechanoids.CompProperties_Machine">
+                    <hoursActive>24</hoursActive>
+                  </li>
+                </comps>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_2-1B_Medical_Droid"]</xpath>
+              <value>
+                <comps>
+                  <li Class="VFE.Mechanoids.CompProperties_Machine">
+                    <hoursActive>96</hoursActive>
+                  </li>
+                </comps>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_TC_Protocol_Droid" or defName="SWD_3PO_Protocol_Droid" or defName="SWD_3PX_Protocol_Droid" or defName="SWD_RA-7_Protocol_Droid" or defName="SWD_RQ_Protocol_Droid" or defName="SWD_C1_Astromech_Droid" or defName="SWD_BB_Astromech_Droid" or defName="SWD_DG-1B_Catering_Droid" or defName="SWD_DUM_Pit_Droid" or defName="SWD_WA-7_Waitress_Droid" or defName="SWD_2-1B_Medical_Droid" or defName="SWD_DLC-13_Mining_Droid" or defName="SWD_MSE-6_Repair_Droid"]/race</xpath>
+              <value>
+                <thinkTreeMain Inherit="False">VFE_Mechanoids_Machine</thinkTreeMain>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_R2_Astromech_Droid" or defName="SWD_R3_Astromech_Droid" or defName="SWD_R4_Astromech_Droid" or defName="SWD_R5_Astromech_Droid" or defName="SWD_R6_Astromech_Droid"]</xpath>
+              <value>
+                <race>
+                  <thinkTreeMain Inherit="False">VFE_Mechanoids_Machine</thinkTreeMain>
+                </race>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_DLC-13_Mining_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                  <ComponentSpacer>1</ComponentSpacer>
+                  <Plasteel>25</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_TC_Protocol_Droid" or defName="SWD_3PO_Protocol_Droid" or defName="SWD_3PX_Protocol_Droid" or defName="SWD_RA-7_Protocol_Droid" or defName="SWD_RQ_Protocol_Droid" or defName="SWD_DG-1B_Catering_Droid" or defName="SWD_WA-7_Waitress_Droid" or defName="SWD_2-1B_Medical_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                  <ComponentSpacer>1</ComponentSpacer>
+                  <Plasteel>20</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_DUM_Pit_Droid" or defName="SWD_R2_Astromech_Droid" or defName="SWD_R3_Astromech_Droid" or defName="SWD_R4_Astromech_Droid" or defName="SWD_R5_Astromech_Droid" or defName="SWD_R6_Astromech_Droid" or defName="SWD_MSE-6_Repair_Droid" or defName="SWD_C1_Astromech_Droid" or defName="SWD_BB_Astromech_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                  <ComponentSpacer>1</ComponentSpacer>
+                  <Plasteel>15</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_DUM_Pit_Droid"]/race</xpath>
+              <value>
+                <mechEnabledWorkTypes>
+                  <li>Cleaning</li>
+                  <li>Hauling</li>
+                  <li>Construction</li>
+                </mechEnabledWorkTypes>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_MSE-6_Repair_Droid"]/race</xpath>
+              <value>
+                <mechEnabledWorkTypes>
+                  <li>Cleaning</li>
+                  <li>Hauling</li>
+                </mechEnabledWorkTypes>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_DLC-13_Mining_Droid"]/race</xpath>
+              <value>
+                <mechEnabledWorkTypes>
+                  <li>Mining</li>
+                  <li>Hauling</li>
+                </mechEnabledWorkTypes>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_WA-7_Waitress_Droid" or defName="SWD_DG-1B_Catering_Droid"]/race</xpath>
+              <value>
+                <mechEnabledWorkTypes>
+                  <li>Cooking</li>
+                </mechEnabledWorkTypes>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_2-1B_Medical_Droid"]/race</xpath>
+              <value>
+                <mechEnabledWorkTypes>
+                  <li>Doctor</li>
+                </mechEnabledWorkTypes>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_3PO_Protocol_Droid" or defName="SWD_3PX_Protocol_Droid" or defName="SWD_RA-7_Protocol_Droid" or defName="SWD_RQ_Protocol_Droid" or defName="SWD_E-XD_Infiltrator_Droid"]/race</xpath>
+              <value>
+                <mechEnabledWorkTypes>
+                  <li>BasicWorker</li>
+                  <li>Hauling</li>
+                </mechEnabledWorkTypes>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_TC_Protocol_Droid"]/race</xpath>
+              <value>
+                <mechEnabledWorkTypes>
+                  <li>BasicWorker</li>
+                  <li>Hauling</li>
+                  <li>Research</li>
+                </mechEnabledWorkTypes>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_C1_Astromech_Droid" or defName="SWD_BB_Astromech_Droid" or defName="SWD_R2_Astromech_Droid" or defName="SWD_R3_Astromech_Droid" or defName="SWD_R4_Astromech_Droid" or defName="SWD_R5_Astromech_Droid" or defName="SWD_R6_Astromech_Droid"]/race</xpath>
+              <value>
+                <mechEnabledWorkTypes>
+                  <li>BasicWorker</li>
+                  <li>Crafting</li>
+                </mechEnabledWorkTypes>
+              </value>
+            </li>
+
+            <!--only comabt droids-->
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_E-XD_Infiltrator_Droid"]/comps</xpath>
+              <value>
+                <li Class="VFE.Mechanoids.CompProperties_Machine">
+                  <violent>true</violent>
+                  <hoursActive>48</hoursActive>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_DT_Sentry_Droid"]</xpath>
+              <value>
+                <comps>
+                  <li Class="VFE.Mechanoids.CompProperties_Machine">
+                    <violent>true</violent>
+                    <hoursActive>48</hoursActive>
+                  </li>
+                </comps>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_D-Wing_Air_Support_Droid"]/comps</xpath>
+              <value>
+                <li Class="VFE.Mechanoids.CompProperties_Machine">
+                  <violent>true</violent>
+                  <hoursActive>48</hoursActive>
+                </li>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_KX_Security_Droid" or defName="SWD_GU_Guardian_Police_Droid"]</xpath>
+              <value>
+                <comps>
+                  <li Class="VFE.Mechanoids.CompProperties_Machine">
+                    <violent>true</violent>
+                    <hoursActive>72</hoursActive>
+                  </li>
+                </comps>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_Viper_Probe_Droid"]/comps</xpath>
+              <value>
+                <li Class="VFE.Mechanoids.CompProperties_Machine">
+                  <violent>true</violent>
+                  <hoursActive>240</hoursActive>
+                </li>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_D-Wing_Air_Support_Droid" or defName="SWD_KX_Security_Droid" or defName="SWD_Viper_Probe_Droid" or defName="SWD_DT_Sentry_Droid" or defName="SWD_GU_Guardian_Police_Droid"]/race</xpath>
+              <value>
+                <thinkTreeMain Inherit="False">VFE_Mechanoids_ViolentMachine</thinkTreeMain>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_E-XD_Infiltrator_Droid"]/race</xpath>
+              <value>
+                <thinkTreeMain Inherit="False">VFE_Mechanoids_Raider</thinkTreeMain>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_E-XD_Infiltrator_Droid" or defName="SWD_D-Wing_Air_Support_Droid" or defName="SWD_GU_Guardian_Police_Droid" or defName="SWD_D-Wing_Air_Support_Droid_Enemy"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                  <ComponentSpacer>1</ComponentSpacer>
+                  <Plasteel>25</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_KX_Security_Droid" or defName="SWD_DT_Sentry_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                  <ComponentSpacer>1</ComponentSpacer>
+                  <Plasteel>45</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_Viper_Probe_Droid" or defName="SWD_Viper_Probe_Droid_Enemy"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                  <ComponentSpacer>2</ComponentSpacer>
+                  <Plasteel>20</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_KX_Security_Droid"]/statBases</xpath>
+              <value>
+                <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+                <ArmorRating_Sharp>0.26</ArmorRating_Sharp>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_DT_Sentry_Droid"]/statBases</xpath>
+              <value>
+                <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+                <ArmorRating_Sharp>0.31</ArmorRating_Sharp>
+              </value>
+            </li>
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_E-XD_Infiltrator_Droid" or defName="SWD_D-Wing_Air_Support_Droid" or defName="SWD_Viper_Probe_Droid_Enemy" or defName="SWD_Viper_Probe_Droid" or defName="SWD_GU_Guardian_Police_Droid" or defName="SWD_D-Wing_Air_Support_Droid_Enemy"]/statBases</xpath>
+              <value>
+                <ArmorRating_Blunt>0.26</ArmorRating_Blunt>
+                <ArmorRating_Sharp>0.26</ArmorRating_Sharp>
+              </value>
+            </li>
+
+            <!--only wandering droids-->
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_IT-O_Interrogator_Droid"]/comps</xpath>
+              <value>
+                <li Class="VFE.Mechanoids.CompProperties_Machine">
+                  <hoursActive>72</hoursActive>
+                </li>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_IT-O_Interrogator_Droid"]/race</xpath>
+              <value>
+                <thinkTreeMain Inherit="False">VFE_Mechanoids_MachineWandering_Draftable</thinkTreeMain>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>Defs/ThingDef[defName="SWD_IT-O_Interrogator_Droid"]</xpath>
+              <value>
+                <butcherProducts Inherit="False">
+                  <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                  <ComponentSpacer>1</ComponentSpacer>
+                  <Plasteel>10</Plasteel>
+                </butcherProducts>
+              </value>
+            </li>
+  
+            <!--charging station-->
+            <li Class="PatchOperationAdd">
+              <xpath>Defs</xpath>
+              <value>
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_3PO_Protocol_Droid_Base</defName>
+                  <label>3PO protocol droid charging station</label>
+                  <costList>
+                    <Steel>45</Steel>
+                    <Plasteel>20</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_3PO_Protocol_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>6</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_3PX_Protocol_Droid_Base</defName>
+                  <label>3PX protocol droid charging station</label>
+                  <costList>
+                    <Steel>20</Steel>
+                    <Plasteel>35</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_3PX_Protocol_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>6</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_TC_Protocol_Droid_Base</defName>
+                  <label>TC protocol droid charging station</label>
+                  <costList>
+                    <Steel>45</Steel>
+                    <Plasteel>20</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_TC_Protocol_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>6</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_RA-7_Protocol_Droid_Base</defName>
+                  <label>RA-7 protocol droid charging station</label>
+                  <costList>
+                    <Steel>20</Steel>
+                    <Plasteel>35</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_RA-7_Protocol_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>6</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_RQ_Protocol_Droid_Base</defName>
+                  <label>RQ protocol droid charging station</label>
+                  <costList>
+                    <Steel>20</Steel>
+                    <Plasteel>35</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_RQ_Protocol_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>6</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_DG-1B_Catering_Droid_Base</defName>
+                  <label>DG-1B ctering droid charging station</label>
+                  <costList>
+                    <Steel>20</Steel>
+                    <Plasteel>35</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_DG-1B_Catering_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_DLC-13_Mining_Droid_Base</defName>
+                  <label>DLC-13 mining droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>40</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_DLC-13_Mining_Droid</pawnToSpawn>
+                      <extraChargingPower>1800</extraChargingPower>
+                      <hoursToRecharge>24</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_DUM_Pit_Droid_Base</defName>
+                  <label>DUM pit droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>25</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_DUM_Pit_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>8</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_2-1B_Medical_Droid_Base</defName>
+                  <label>2-1B medical droid charging station</label>
+                  <costList>
+                    <Steel>45</Steel>
+                    <Plasteel>30</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_2-1B_Medical_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_WA-7_Waitress_Droid_Base</defName>
+                  <label>WA-7 waitress droid charging station</label>
+                  <costList>
+                    <Steel>20</Steel>
+                    <Plasteel>35</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_WA-7_Waitress_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>8</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_E-XD_Infiltrator_Droid_Base</defName>
+                  <label>E-XD infiltrator droid charging station</label>
+                  <costList>
+                    <Plasteel>45</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_E-XD_Infiltrator_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>24</hoursToRecharge>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_D-Wing_Air_Support_Droid_Base</defName>
+                  <label>D-Wing air support droid charging station</label>
+                  <costList>
+                    <Plasteel>45</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_D-Wing_Air_Support_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_KX_Security_Droid_Base</defName>
+                  <label>KX security droid charging station</label>
+                  <costList>
+                    <Plasteel>65</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_KX_Security_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>24</hoursToRecharge>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_Viper_Probe_Droid_Base</defName>
+                  <label>Viper probe droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>35</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_Viper_Probe_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <showSetArea>false</showSetArea>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_DT_Sentry_Droid_Base</defName>
+                  <label>DT sentry droid charging station</label>
+                  <costList>
+                    <Plasteel>65</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_DT_Sentry_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>24</hoursToRecharge>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_GU_Guardian_Police_Droid_Base</defName>
+                  <label>GU guardian police droid charging station</label>
+                  <costList>
+                    <Plasteel>45</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_GU_Guardian_Police_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_IT-O_Interrogator_Droid_Base</defName>
+                  <label>IT-O interrogator droid charging station</label>
+                  <costList>
+                    <Steel>30</Steel>
+                    <Plasteel>20</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_IT-O_Interrogator_Droid</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_R2_Astromech_Droid_Base</defName>
+                  <label>R2 astromech droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>25</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_R2_Astromech_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_R3_Astromech_Droid_Base</defName>
+                  <label>R3 astromech droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>25</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_R3_Astromech_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>11</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_R4_Astromech_Droid_A_Base</defName>
+                  <label>R4 agromech droid charging station (A)</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>15</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_R4_Astromech_Droid_A</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>8</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_R4_Astromech_Droid_B_Base</defName>
+                  <label>R4 agromech droid charging station (B)</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>15</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_R4_Astromech_Droid_B</pawnToSpawn>
+                      <extraChargingPower>1200</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>8</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_R5_Astromech_Droid_Base</defName>
+                  <label>R5 astromech droid charging station</label>
+                  <costList>
+                    <Steel>20</Steel>
+                    <Plasteel>20</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_R5_Astromech_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>4</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_R6_Astromech_Droid_Base</defName>
+                  <label>R6 astromech droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>25</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_R6_Astromech_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_C1_Astromech_Droid_Base</defName>
+                  <label>C1 astromech droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>25</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_C1_Astromech_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_BB_Astromech_Droid_Base</defName>
+                  <label>BB astromech droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>25</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_BB_Astromech_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+
+                <ThingDef ParentName="SWD_ChargingStation_Base">
+                  <defName>SWD_MSE-6_Repair_Droid_Base</defName>
+                  <label>MSE-6 repair droid charging station</label>
+                  <costList>
+                    <Steel>15</Steel>
+                    <Plasteel>15</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                      <pawnToSpawn>SWD_MSE-6_Repair_Droid</pawnToSpawn>
+                      <extraChargingPower>1600</extraChargingPower>
+                      <hoursToRecharge>12</hoursToRecharge>
+                      <skillLevel>10</skillLevel>
+                    </li>
+                  </comps>
+                </ThingDef>
+                
+                <SoundDef>
+                  <defName>SWD_Gonk_Spawn</defName>
+                  <context>MapOnly</context>
+                  <maxSimultaneous>1</maxSimultaneous>
+                  <subSounds>
+                    <li>
+                      <grains>
+                        <li Class="AudioGrain_Folder">
+                          <clipFolderPath>Misc/MechanoidsWakeUp</clipFolderPath>
+                        </li>
+                      </grains>
+                      <volumeRange>40~40</volumeRange>
+                      <distRange>10~100</distRange>
+                      <pitchRange>0.5~0.9</pitchRange>
+                    </li>
+                  </subSounds>
+                </SoundDef>
+              
+                <ThingDef ParentName="SWD_PowerDroidStation_Base">
+                  <defName>SWD_GNK_Power_Droid_Base</defName>
+                  <label>GNK power droid charging station</label>
+                  <costList>
+                    <Steel>25</Steel>
+                    <Plasteel>35</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                    <Chemfuel>8</Chemfuel>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="CompProperties_SpawnerPawn">
+                      <spawnablePawnKinds>
+                        <li>SWD_GNK_Power_Droid</li>
+                      </spawnablePawnKinds>
+                      <pawnSpawnRadius>0</pawnSpawnRadius>
+                      <maxSpawnedPawnsPoints>50</maxSpawnedPawnsPoints>
+                      <initialPawnsPoints>50</initialPawnsPoints>
+                      <lordJob>LordJob_DefendAndExpandHive</lordJob>
+                      <spawnSound>SWD_Gonk_Spawn</spawnSound>
+                    </li>
+                  </comps>
+                </ThingDef>
+              
+                <ThingDef ParentName="SWD_PowerDroidStation_Base">
+                  <defName>SWD_EG_Power_Droid_Base</defName>
+                  <label>EG power droid charging station</label>
+                  <costList>
+                    <Steel>25</Steel>
+                    <Plasteel>35</Plasteel>
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                  </costList>
+                  <researchPrerequisites>
+                    <li>VFE_BasicDroneAssembly</li>
+                  </researchPrerequisites>
+                  <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                  <comps>
+                    <li Class="CompProperties_SpawnerPawn">
+                      <spawnablePawnKinds>
+                        <li>SWD_EG_Power_Droid</li>
+                      </spawnablePawnKinds>
+                      <pawnSpawnRadius>0</pawnSpawnRadius>
+                      <maxSpawnedPawnsPoints>50</maxSpawnedPawnsPoints>
+                      <initialPawnsPoints>50</initialPawnsPoints>
+                      <lordJob>LordJob_DefendAndExpandHive</lordJob>
+                      <spawnSound>SWD_Gonk_Spawn</spawnSound>
+                    </li>
+                  </comps>
+                </ThingDef>
+              </value>
+            </li>
+          </operations>
+        </match>
+      </nomatch>
+    <!--</nomatch>-->
+  </Operation>
+
+</Patch>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="VFECore.PatchOperationToggableSequence">
+    <enabled>True</enabled>
+    <label>Viper probe droid landing creates yellow letter:</label>
+    <operations>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/IncidentDef[defName="SWD_ViperDroid_Pod"]/workerClass</xpath>
+        <value>
+          <workerClass>SWD_StarWars_Droids.SWD_ViperDroidPodLanding_Letter</workerClass>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="SWD_Viper_Probe_Droid_Enemy"]/comps/li[2]/checkingInterval</xpath>
+        <value>
+          <checkingInterval>125000</checkingInterval>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs><!--KX: JDSA_SE-14_Light_Blaster_Pistol-->
+
+  <!--===========Melee Weapons===========-->
+
+  <ThingDef Name="SWD_WeaponMeleeBase" ParentName="BaseMeleeWeapon_Blunt_Quality" Abstract="True">
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+			<unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+			<skillRequirements>
+			  <Crafting>7</Crafting>
+		  </skillRequirements>
+			<recipeUsers Inherit="False">
+			  <li>FabricationBench</li>
+      </recipeUsers>
+		</recipeMaker>
+    <weaponClasses>
+      <li>Melee</li>
+    </weaponClasses>
+    <relicChance>0</relicChance>
+  </ThingDef>
+  
+  <!--Electro_Baton-->
+
+  <ThingDef ParentName="SWD_WeaponMeleeBase">
+    <defName>SWD_Electro_Riot_Baton</defName>
+    <label>Electro Riot Baton</label>
+    <description>The electro riot baton as a type of baton used by the Galactic Empire.</description>
+    <graphicData>
+      <texPath>Weapons/Electro_Riot_Baton</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1000</WorkToMake>
+      <Mass>1.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <costList>
+      <Steel>20</Steel>
+      <Plasteel>100</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <tools>
+      <li>
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>1.6</cooldownTime>
+        <chanceFactor>50</chanceFactor>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.2</cooldownTime>
+      </li>
+    </tools>
+    <weaponTags>
+      <li>StarWarsWeapons</li>
+      <li>Electro_Baton</li>
+    </weaponTags>
+  </ThingDef>
+  
+  <!--Security_Baton-->
+
+  <ThingDef ParentName="SWD_WeaponMeleeBase">
+    <defName>SWD_Security_Baton</defName>
+    <label>Security Baton</label>
+    <description>A security baton was a melee weapon utilized primarily by law enforcement as a personnel defense and crowd control tool. It was carried by police officers and GU guardian police droids of the Coruscant Security Force.</description>
+    <graphicData>
+      <texPath>Weapons/Security_Baton</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToMake>800</WorkToMake>
+      <Mass>1.0</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <costList>
+      <Steel>30</Steel>
+      <Plasteel>70</Plasteel>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <tools>
+      <li>
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.6</cooldownTime>
+      </li>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.2</cooldownTime>
+      </li>
+    </tools>
+    <weaponTags>
+      <li>StarWarsWeapons</li>
+      <li>Security_Baton</li>
+    </weaponTags>
+  </ThingDef>
+  
+
+  <!--===========Ranged Weapons===========-->
+
+  <ThingDef Name="SWD_WeaponRangedBase" ParentName="BaseHumanMakeableGun" Abstract="True">
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <recipeMaker>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <displayPriority>300</displayPriority>
+    </recipeMaker>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <weaponTags>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>Ranged</li>
+    </weaponClasses>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <relicChance>0</relicChance>
+  </ThingDef>
+  
+  <!--DT_E-11_Blaster_Rifle-->
+
+  <ThingDef ParentName="SWD_WeaponRangedBase">
+    <defName>SWD_DT_E-11_Blaster_Rifle</defName>
+    <label>DT Droid E-11 Blaster Rifle</label>
+    <description>In-build blaster rifle for DT Droid.</description>
+    <graphicData>
+      <texPath>Weapons/DT_Sentry_Droid_Gun</texPath>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <tradeability>None</tradeability>
+    <destroyOnDrop>true</destroyOnDrop>
+    <statBases>
+      <WorkToMake>40000</WorkToMake>
+      <MarketValue>2900</MarketValue>
+      <Mass>5</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>1.20</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>70</Plasteel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SWD_BlasterBolt_Red</defaultProjectile>
+        <warmupTime>0.25</warmupTime>
+        <range>35</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>StarWarsArmory</li>
+      <li>DT_E-11_Blaster_Rifle</li>
+    </weaponTags>
+  </ThingDef>
+  
+  <!--SS-410_Police_Special_Blaster_Pistol-->
+
+  <ThingDef ParentName="SWD_WeaponRangedBase">
+    <defName>SWD_SS-410_Police_Special_Blaster_Pistol</defName>
+    <label>SS-410 Police Special Blaster Pistol</label>
+    <description>The SS-410 police special was a blaster pistol utilized by the Coruscant Security Force.</description>
+    <graphicData>
+      <texPath>Weapons/SS-410_Police_Special_Blaster_Pistol</texPath>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <soundInteract>Interact_Autopistol</soundInteract>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <MarketValue>1500</MarketValue>
+      <Mass>1.5</Mass>
+      <AccuracyTouch>1.00</AccuracyTouch>
+      <AccuracyShort>0.90</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.20</AccuracyLong>
+      <RangedWeapon_Cooldown>0.90</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <Plasteel>30</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SWD_BlasterBolt_Blue</defaultProjectile>
+        <warmupTime>0.05</warmupTime>
+        <range>20</range>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>Shot_ChargeBlaster</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>StarWarsArmory</li>
+      <li>SS-410_Police_Special_Blaster_Pistol</li>
+    </weaponTags>
+    <modExtensions>
+      <li Class="VFECore.ThingDefExtension">
+        <usableWithShields>true</usableWithShields>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <!--EX-D_Wrist_Blaster-->
+
+  <ThingDef ParentName="SWD_WeaponRangedBase">
+    <defName>SWD_EX-D_Wrist_Blaster</defName>
+    <label>E-XD Droid Wrist Blaster</label>
+    <description>Built-in blaster cannon (Wrist blaster).</description>
+    <graphicData>
+      <texPath>Weapons/E-XD_Infiltrator_Droid_Gun</texPath>
+      <drawSize>1.3</drawSize>
+      <color>(65, 115, 145)</color>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>Interact_Autopistol</soundInteract>
+    <tradeability>None</tradeability>
+    <destroyOnDrop>true</destroyOnDrop>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <MarketValue>2800</MarketValue>
+      <Mass>2.2</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.35</AccuracyLong>
+      <RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <Plasteel>50</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SWD_BlasterBolt_Red</defaultProjectile>
+        <warmupTime>5.80</warmupTime>
+        <range>20</range>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Shot_IncendiaryLauncher</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <comps>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+    </comps>
+    <weaponTags>
+      <li>StarWarsArmory</li>
+      <li>EX-D_Wrist_Blaster</li>
+    </weaponTags>
+  </ThingDef>
+  
+  <!--E-22_Blaster_Rifle-->
+
+  <ThingDef ParentName="SWD_WeaponRangedBase">
+    <defName>SWD_E-22_Blaster_Rifle</defName>
+    <label>E-22 Blaster Rifle</label>
+    <description>The E-22 blaster rifle was a reciprocating, double-barreled blaster that was bigger and more powerful than the standard E-11 medium blaster rifle used by the Galactic Empire's stormtroopers. It was commonly used by coastal defender stormtroopers and KX security droids.</description>
+    <graphicData>
+      <texPath>Weapons/E-22_Blaster_Rifle</texPath>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <WorkToMake>55000</WorkToMake>
+      <MarketValue>3000</MarketValue>
+      <Mass>5</Mass>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>1.20</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>70</Plasteel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SWD_BlasterBolt_Red</defaultProjectile>
+        <warmupTime>0.6</warmupTime>
+        <range>35</range>
+        <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+        <burstShotCount>4</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>StarWarsArmory</li>
+      <li>E-22_Blaster_Rifle</li>
+    </weaponTags>
+  </ThingDef>
+
+</Defs>

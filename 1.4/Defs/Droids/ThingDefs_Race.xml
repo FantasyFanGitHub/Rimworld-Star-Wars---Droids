@@ -1,0 +1,3110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--==========Droid Base==========-->
+
+  <ThingDef ParentName="BasePawn" Name="SWD_BaseDroid" Abstract="True">
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <PsychicSensitivity>0.25</PsychicSensitivity>
+      <ToxicResistance>1</ToxicResistance>
+      <Flammability>0</Flammability>
+      <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+      <ComfyTemperatureMax>250</ComfyTemperatureMax>
+      <MeatAmount>0</MeatAmount>
+      <ArmorRating_Heat>0.50</ArmorRating_Heat>
+      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+      <BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">1</BandwidthCost>
+      <ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">12</ControlTakingTime>
+      <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+      <MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.33</MechEnergyLossPerHP>
+      <WastepacksPerRecharge MayRequire="Ludeon.Rimworld.Biotech">5</WastepacksPerRecharge>
+      <WorkSpeedGlobal MayRequire="Ludeon.Rimworld.Biotech">0.5</WorkSpeedGlobal>
+    </statBases>
+    <receivesSignals>true</receivesSignals>
+    <tradeability>None</tradeability>
+    <race>
+      <fleshType>Mechanoid</fleshType>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+      <lifeExpectancy>2500</lifeExpectancy>
+      <bloodDef>Filth_MachineBits</bloodDef>
+      <nameGenerator MayRequire="Ludeon.RimWorld.Biotech">NamerMech</nameGenerator>
+      <soundCallIntervalRange>1000~2000</soundCallIntervalRange>
+      <soundCallIntervalFriendlyFactor>2</soundCallIntervalFriendlyFactor>
+      <thinkTreeConstant MayRequire="Ludeon.RimWorld.Biotech">MechConstant</thinkTreeConstant>
+      <intelligence>ToolUser</intelligence>
+      <thinkTreeMain>Mechanoid</thinkTreeMain>
+      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+      <mechWeightClass>Light</mechWeightClass>
+    </race>
+    <comps>
+      <li Class="CompProperties_CanBeDormant" />
+      <li Class="CompProperties_WakeUpDormant">
+        <wakeUpOnDamage>true</wakeUpOnDamage>
+        <wakeUpCheckRadius>30</wakeUpCheckRadius>
+        <wakeUpSound>MechanoidsWakeUp</wakeUpSound>
+      </li>
+      <li MayRequire="Ludeon.Rimworld.Biotech" Class="CompProperties_OverseerSubject">
+        <needsOverseerEffect>MechUncontrolled</needsOverseerEffect>
+        <delayUntilFeralCheck>60000</delayUntilFeralCheck>
+        <feralMtbDays>10</feralMtbDays>
+        <feralCascadeRadialDistance>25</feralCascadeRadialDistance>
+      </li>
+      <li MayRequire="Ludeon.Rimworld.Biotech" Class="CompProperties_MechRepairable" />
+    </comps>
+    <butcherProducts>
+      <Steel>10</Steel>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef Name="SWD_BaseDroidKind" Abstract="True">
+    <defaultFactionType>PlayerColony</defaultFactionType>
+    <aiAvoidCover>true</aiAvoidCover>
+    <destroyGearOnDrop>true</destroyGearOnDrop>
+    <canStrip>false</canStrip>
+    <minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">200</minGenerationAge>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <allowInMechClusters>false</allowInMechClusters>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags></weaponTags>
+    <techHediffsChance>1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+    <controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
+  </PawnKindDef>
+
+  <PawnKindDef Name="SWD_BaseDroidKind_Enemy" Abstract="True">
+    <aiAvoidCover>true</aiAvoidCover>
+    <destroyGearOnDrop>true</destroyGearOnDrop>
+    <canStrip>false</canStrip>
+    <minGenerationAge MayRequire="Ludeon.Rimworld.Biotech">200</minGenerationAge>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <allowInMechClusters>false</allowInMechClusters>
+    <weaponMoney>9999~9999</weaponMoney>
+    <weaponTags></weaponTags>
+    <techHediffsChance>1</techHediffsChance>
+    <techHediffsMoney>9999~9999</techHediffsMoney>
+    <controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
+  </PawnKindDef>
+
+  <MVCF.ModDef>
+    <defName>SWD_StarWarsDroids</defName>
+    <label>Star Wars Droids</label>
+    <description>Adding droid ranged attacks for Star Wars droids</description>
+    <ActivateFeatures>
+      <li>RangedAnimals</li>
+      <li>IntegratedToggle</li>
+      <li>HediffVerbs</li>
+      <li>Drawing</li>
+    </ActivateFeatures>
+  </MVCF.ModDef>
+
+  <!--==========Droid Races==========-->
+  
+  <!--3PO_Protocol_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_3PO_Protocol_Droid</defName>
+    <label>3PO Protocol Droid</label>
+    <description>The 3PO protocol droid is a model of protocol droid produced by Cybot Galactica. They are equipped with a TranLang III communication module, and as a result are fluent in over 6 million forms of communication.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>1</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_3PO_Protocol_Droid</defName>
+    <label>3PO Protocol Droid</label>
+    <race>SWD_3PO_Protocol_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/3PO_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(185, 145, 55)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/3PO_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(185, 145, 55)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--3PX_Protocol_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_3PX_Protocol_Droid</defName>
+    <label>3PX Protocol Droid</label>
+    <description>The 3PX protocol droid is a model of protocol droid produced by Cybot Galactica. The 3PX line is marketed exclusively in the Outer Rim Territories, and due to the diversity of that region, have a less Human design than the mainline 3PO units.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_3PX_Protocol_Droid</defName>
+    <label>3PX Protocol Droid</label>
+    <race>SWD_3PX_Protocol_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/3PX_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(55, 85, 185)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/3PX_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(55, 85, 185)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--RA-7_Protocol_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_RA-7_Protocol_Droid</defName>
+    <label>RA-7 Protocol Droid</label>
+    <description>The RA-7 protocol droid is a model of protocol droid manufactured by Arakyd Industries. Their heads resemble those of a insectoid species.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_RA-7_Protocol_Droid</defName>
+    <label>RA-7 Protocol Droid</label>
+    <race>SWD_RA-7_Protocol_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/RA-7_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(30, 35, 65)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/RA-7_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(30, 35, 65)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--RQ_Protocol_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_RQ_Protocol_Droid</defName>
+    <label>RQ Protocol Droid</label>
+    <description>The RQ protocol droid is a model of protocol droid manufactured by Lothal Logistics Limited. They often lack the expensive metallic plating on other protocol droids, which means they don't require costly cosmetic upgrades, making them ideal for use in governments, military, and private ownership.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_RQ_Protocol_Droid</defName>
+    <label>RQ Protocol Droid</label>
+    <race>SWD_RQ_Protocol_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/RQ_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(205, 100, 55)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/RQ_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(100, 80, 70)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--E-XD_Infiltrator_Droid-->
+  <HediffDef>
+    <defName>SWD_E_XD_Combat_Mode</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+    <description>e-xd droid (combat mode)</description>
+    <label>e-xd droid (combat mode)</label>
+    <isBad>false</isBad>
+    <initialSeverity>0.01</initialSeverity>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+        <disabledWorkTags>
+          <li>AllWork</li>
+        </disabledWorkTags>
+        <statOffsets>
+          <ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+        </statOffsets>
+      </li>
+    </stages>
+    <comps>
+      <li Class="MVCF.Comps.HediffCompProperties_ExtendedVerbGiver">
+        <verbs>
+          <li>
+            <label>E-XD Droid Wrist Blaster</label>
+            <verbClass>Verb_Shoot</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>SWD_BlasterBolt_Red</defaultProjectile>
+            <warmupTime>5.80</warmupTime>
+            <range>20</range>
+            <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+            <burstShotCount>1</burstShotCount>
+            <soundCast>Shot_IncendiaryLauncher</soundCast>
+            <soundCastTail>GunTail_Medium</soundCastTail>
+            <muzzleFlashScale>9</muzzleFlashScale>
+            <commandIcon>Weapons/E-XD_Infiltrator_Droid_Gun</commandIcon>
+          </li>
+        </verbs>
+        <verbProps>
+          <li>
+            <label>E-XD Droid Wrist Blaster</label>
+            <description>SWD_EX-D_Wrist_Blaster: Built-in blaster cannon (Wrist blaster).</description>
+            <canBeToggled>false</canBeToggled>
+            <canFireIndependently>false</canFireIndependently>
+            <draw>false</draw>
+            <comps>
+              <li Class="MVCF.VerbComps.VerbCompProperties_Draw">
+                <compClass>MVCF.VerbComps.VerbComp_Draw</compClass>
+                <graphic>
+                  <texPath>Weapons/E-XD_Infiltrator_Droid_Gun</texPath>
+                  <graphicClass>Graphic_Single</graphicClass>
+                  <color>(65, 115, 145)</color>
+                  <shaderType>CutoutComplex</shaderType>
+                </graphic>
+                <drawAsEquipment>true</drawAsEquipment>
+                <drawScale>1.3</drawScale>
+              </li>
+            </comps>
+          </li>
+        </verbProps>
+      </li>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDef>SWD_E-XD_ChangeTo_Protocol_Mode</abilityDef>
+      </li>
+    </comps>
+  </HediffDef>
+  <HediffDef>
+    <defName>SWD_E_XD_Protocol_Mode</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+    <description>e-xd droid (protocol mode)</description>
+    <label>e-xd droid (protocol mode)</label>
+    <isBad>false</isBad>
+    <initialSeverity>0.01</initialSeverity>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_GiveAbility">
+        <abilityDef>SWD_E-XD_ChangeTo_Combat_Mode</abilityDef>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <AbilityGroupDef>
+    <defName>SWD_E-XD_Change_Mode_Group</defName>
+    <cooldownTicks>20000</cooldownTicks>
+  </AbilityGroupDef>
+  <AbilityDef>
+    <defName>SWD_E-XD_ChangeTo_Combat_Mode</defName>
+    <label>change to combat mode</label>
+    <description>Change to combat mode (build-in wrist blaster appears).</description>
+    <iconPath>Mechanoid/E-XD_Infiltrator_Droid_south</iconPath>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SWD_E_XD_Combat_Mode</hediffDef>
+        <severity>0.5</severity>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+        <onlyBrain>True</onlyBrain>
+      </li>
+      <li Class="CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+        <hediffDef>SWD_E_XD_Protocol_Mode</hediffDef>
+        <applyToSelf>true</applyToSelf>
+      </li>
+    </comps>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <hotKey>Misc12</hotKey>
+    <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+    <groupDef>SWD_E-XD_Change_Mode_Group</groupDef>
+    <statBases>
+      <Ability_EffectRadius>0.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.5</warmupTime>
+      <range>0.9</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  <AbilityDef>
+    <defName>SWD_E-XD_ChangeTo_Protocol_Mode</defName>
+    <label>change to protocol mode</label>
+    <description>Change to protocol mode (droid can do basic work and hauling).</description>
+    <iconPath>Mechanoid/RQ_Protocol_Droid_south</iconPath>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>SWD_E_XD_Protocol_Mode</hediffDef>
+        <severity>0.5</severity>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+        <onlyBrain>True</onlyBrain>
+      </li>
+      <li Class="CompProperties_AbilityRemoveHediff">
+        <compClass>CompAbilityEffect_RemoveHediff</compClass>
+        <hediffDef>SWD_E_XD_Combat_Mode</hediffDef>
+        <applyToSelf>true</applyToSelf>
+      </li>
+    </comps>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>True</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+    <hotKey>Misc12</hotKey>
+    <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+    <groupDef>SWD_E-XD_Change_Mode_Group</groupDef>
+    <statBases>
+      <Ability_EffectRadius>0.9</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.5</warmupTime>
+      <range>0.9</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+  
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_E-XD_Infiltrator_Droid</defName>
+    <label>E-XD Infiltrator Droid</label>
+    <description>The E-XD infiltrator droid is a model of recon droid used by the Galactic Empire. E-XD infiltrator droids resemble RQ protocol droids but are in fact specialized recon droids that are fitted with various integrated weapons including built-in blasters. Explodes when it dies.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="AnimalBehaviours.CompProperties_InitialHediff">
+        <hediffname>SWD_E_XD_Protocol_Mode</hediffname>
+        <hediffseverity>0.5</hediffseverity>
+        <applyToAGivenBodypart>true</applyToAGivenBodypart>
+        <part>SWD_Basic_Processor</part>
+      </li>
+      <!--<li Class="SWD_StarWars_Droids.SWD_CompProperties_ChangeGraphic">
+        <hediffDef>SWD_E_XD_Combat_Mode</hediffDef>
+        <texPath>Mechanoid/E-XD_Infiltrator_Droid</texPath>
+        <drawSize>1.8</drawSize>
+        <changeGraphicsInterval>150</changeGraphicsInterval>
+        <color>(65, 115, 145)</color>
+      </li>-->
+    </comps>
+    <race>
+      <baseBodySize>1.1</baseBodySize>
+      <baseHealthScale>1.2</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <deathActionWorkerClass>DeathActionWorker_BigExplosion</deathActionWorkerClass>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_E-XD_Infiltrator_Droid</defName>
+    <label>E-XD Infiltrator Droid</label>
+    <race>SWD_E-XD_Infiltrator_Droid</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/RQ_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(65, 115, 145)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/RQ_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(65, 115, 145)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--TC_Protocol_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_TC_Protocol_Droid</defName>
+    <label>TC Protocol Droid</label>
+    <description>The TC protocol droid is a model of protocol droid produced by Cybot Galactica. It has the same overall appearance and size as the popular 3PO droids, but presents a few differences. Notably, the manufacturer advertises TC units as being cooler and more unflappable than their 3PO cousins.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>1</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_TC_Protocol_Droid</defName>
+    <label>TC Protocol Droid</label>
+    <race>SWD_TC_Protocol_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/3PO_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(130, 15, 20)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/3PO_Protocol_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(130, 15, 20)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--DG-1B_Catering_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_DG-1B_Catering_Droid</defName>
+    <label>DG-1B Catering Droid</label>
+    <description>The DG-1B catering droid is a model of service droid manufactured by Industrial Automaton, programmed to cater during social events. The droids have blue sensors and wear a white apron.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.8</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_DG-1B_Catering_Droid</defName>
+    <label>DG-1B Catering Droid</label>
+    <race>SWD_DG-1B_Catering_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/DG-1B_Catering_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/DG-1B_Catering_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--DLC-13_Mining_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_DLC-13_Mining_Droid</defName>
+    <label>DLC-13 Mining Droid</label>
+    <description>The DLC-13 mining droid is a mining droid used to extract valuable ores from inhospitable environments. The droids are made from heat-resistant carbonite and are fitted with large, underslung collection buckets to transport minerals back to harvesting centers.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+      <ArmorRating_Heat>0.70</ArmorRating_Heat>
+    </statBases>
+    <race>
+      <baseBodySize>0.7</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_HoverHead</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>bucket</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10.2</power>
+        <cooldownTime>3</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>bucket</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10.2</power>
+        <cooldownTime>3</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>3</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_DLC-13_Mining_Droid</defName>
+    <label>DLC-13 Mining Droid</label>
+    <race>SWD_DLC-13_Mining_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/DLC-13_Mining_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.4</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/DLC-13_Mining_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.4</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--DUM_Pit_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_DUM_Pit_Droid</defName>
+    <label>DUM Pit Droid</label>
+    <description>A DUM pit droid is a droid manufactured by Serv-O-Droid, Inc. and used in labor, repair and light construction. They are also associated with repairing podracers at podracing events.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.65</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_DUM_Pit_Droid</defName>
+    <label>DUM Pit Droid</label>
+    <race>SWD_DUM_Pit_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/DUM_Pit_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.5</drawSize>
+          <color>(185, 105, 70)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/DUM_Pit_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.5</drawSize>
+          <color>(185, 105, 70)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--D-Wing_Air_Support_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_D-Wing_Air_Support_Droid</defName>
+    <label>D-Wing Air Support Droid</label>
+    <description>The D-wing air support droid is an aerial battle droid and a variant of the B-series droid line. The droids have wings that they use to pursue enemies to areas where normal battle droids could not. They are developed by the Techno Union and used by the Confederacy of Independent Systems during the Clone Wars.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+      <MarketValue>1200</MarketValue>
+      <!--<JumpRange MayRequire="Ludeon.Rimworld.Royalty">23.9</JumpRange>-->
+    </statBases>
+    <race>
+      <baseBodySize>1.1</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_HumanoidWing</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <comps>
+      <!--<li Class="CompProperties_Reloadable" MayRequire="Ludeon.Rimworld.Royalty">
+        <maxCharges>5</maxCharges>
+        <ammoDef>Chemfuel</ammoDef>
+        <ammoCountPerCharge>20</ammoCountPerCharge>
+        <baseReloadTicks>60</baseReloadTicks>
+        <soundReload>Standard_Reload</soundReload>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>jump</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+      <li Class="MVCF.Comps.CompProperties_VerbProps"><!-MayRequire="Ludeon.Rimworld.Royalty, OskarPotocki.VanillaFactionsExpanded.Core"->
+        <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+        <verbProps>
+          <li>
+            <label>jump</label>
+            <comps>
+              <li Class="MVCF.VerbComps.VerbCompProperties_Cooldown">
+                <compClass>MVCF.VerbComps.VerbComp_Cooldown</compClass>
+                <cooldownTime>10</cooldownTime>
+              </li>
+            </comps>
+          </li>
+        </verbProps>
+      </li>-->
+    </comps>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SWD_BlasterBolt_Red</defaultProjectile>
+        <warmupTime>0.25</warmupTime>
+        <range>35</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+      <!--<li MayRequire="Ludeon.Rimworld.Royalty">
+        <verbClass>Verb_Jump</verbClass>
+        <label>jump</label>
+        <violent>false</violent>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+        <warmupTime>0.5</warmupTime>
+        <warmupEffecter>JumpWarmupEffect</warmupEffecter>
+        <requireLineOfSight>true</requireLineOfSight>
+        <flightEffecterDef>JumpFlightEffect</flightEffecterDef>
+        <soundLanding>JumpPackLand</soundLanding>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetPawns>false</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+      </li>-->
+    </verbs>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_D-Wing_Air_Support_Droid</defName>
+    <label>D-Wing Air Support Droid</label>
+    <race>SWD_D-Wing_Air_Support_Droid</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/D-Wing_Air_Support_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(215, 160, 95)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/D-Wing_Air_Support_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(215, 160, 95)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_D-Wing_Air_Support_Droid_Enemy</defName>
+    <label>D-Wing Air Support Droid</label>
+    <description>The D-wing air support droid is an aerial battle droid and a variant of the B-series droid line. The droids have wings that they use to pursue enemies to areas where normal battle droids could not. They are developed by the Techno Union and used by the Confederacy of Independent Systems during the Clone Wars.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <race>
+      <baseBodySize>1.1</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_HumanoidWing</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SWD_BlasterBolt_Red</defaultProjectile>
+        <warmupTime>0.25</warmupTime>
+        <range>35</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind_Enemy">
+    <defName>SWD_D-Wing_Air_Support_Droid_Enemy</defName>
+    <label>D-Wing Air Support Droid</label>
+    <race>SWD_D-Wing_Air_Support_Droid_Enemy</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/D-Wing_Air_Support_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(215, 160, 95)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/D-Wing_Air_Support_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(215, 160, 95)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--IT-O_Interrogator_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_IT-O_Interrogator_Droid</defName>
+    <label>IT-O Interrogator Droid</label>
+    <description>The IT-O interrogator droid is an interrogation droid designed by the Imperial Security Bureau and employed by the Galactic Empire. It is a hovering droid with various attachments, deliberately frightening in appearance, used in torture. The droid is generally successful in getting information from prisoners using elaborate and scientific torture methods.</description>
+    <statBases>
+      <MoveSpeed>4.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.2</baseBodySize>
+      <baseHealthScale>0.3</baseHealthScale>
+      <body>SWD_Droid_Body_Hover</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <comps>
+      <li Class="AnimalBehaviours.CompProperties_HediffEffecter">
+        <radius>2</radius>
+        <severity>0.2</severity>
+        <tickInterval>2500</tickInterval>
+        <hediff>SWD_Tortured</hediff>
+      </li>
+      <li Class="AnimalBehaviours.CompProperties_Draftable">
+		    <makeNonFleeingToo>true</makeNonFleeingToo>
+	    </li>
+	    <li Class="AnimalBehaviours.CompProperties_Floating"></li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>SWD_Tortured</defName>
+    <label>tortured</label>
+    <description>Pain caused by an IT-O interrogator droid. If exposure to the droid continues, it could lead to a mental break.</description>
+    <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-11.7</severityPerDay>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>initial</label>
+        <becomeVisible>false</becomeVisible>
+      </li>
+      <li>
+        <label>initial</label>
+        <minSeverity>0.04</minSeverity>
+        <painOffset>0.10</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>minor</label>
+        <minSeverity>0.2</minSeverity>
+        <painOffset>0.15</painOffset>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.1</offset>
+          </li>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>serious</label>
+        <minSeverity>0.35</minSeverity>
+        <painOffset>0.30</painOffset>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.3</offset>
+          </li>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.20</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Jailbreaker</mentalState>
+            <mtbDays>0.2</mtbDays>
+          </li>
+        </mentalStateGivers>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>CatatonicBreakdown</hediff>
+            <allowOnLodgers>false</allowOnLodgers>
+            <allowOnQuestRewardPawns>false</allowOnQuestRewardPawns>
+            <allowOnQuestReservedPawns>false</allowOnQuestReservedPawns>
+            <allowOnBeggars>false</allowOnBeggars>
+            <mtbDays>0.5</mtbDays>
+          </li>
+        </hediffGivers>
+      </li>
+      <li>
+        <label>extreme</label>
+        <minSeverity>0.62</minSeverity>
+        <painOffset>0.50</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.3</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Jailbreaker</mentalState>
+            <mtbDays>0.3</mtbDays>
+          </li>
+        </mentalStateGivers>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>CatatonicBreakdown</hediff>
+            <allowOnLodgers>false</allowOnLodgers>
+            <allowOnQuestRewardPawns>false</allowOnQuestRewardPawns>
+            <allowOnQuestReservedPawns>false</allowOnQuestReservedPawns>
+            <allowOnBeggars>false</allowOnBeggars>
+            <mtbDays>0.3</mtbDays>
+          </li>
+        </hediffGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_IT-O_Interrogator_Droid</defName>
+    <label>IT-O Interrogator Droid</label>
+    <race>SWD_IT-O_Interrogator_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/IT-O_Interrogator_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.2</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/IT-O_Interrogator_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.2</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--KX_Security_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_KX_Security_Droid</defName>
+    <label>KX Security Droid</label>
+    <description>The KX security droid is a model of security droid manufactured by Arakyd Industries that was in service to the Galactic Empire during the Galactic Civil War. The droids are designed with exaggerated human proportions but with the mobility of a human athlete.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+      <ArmorRating_Heat>0.70</ArmorRating_Heat>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <race>
+      <baseBodySize>1.1</baseBodySize>
+      <baseHealthScale>1.1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_KX_Security_Droid</defName>
+    <label>KX Security Droid</label>
+    <race>SWD_KX_Security_Droid</race>
+    <combatPower>150</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/KX_Security_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.0</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/KX_Security_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.0</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+      <li>E-22_Blaster_Rifle</li>
+      <li>SE-14_Light_Blaster_Pistol</li>
+      <li>Electro_Baton</li>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--2-1B_Medical_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_2-1B_Medical_Droid</defName>
+    <label>2-1B Medical Droid</label>
+    <description>The 2-1B medical droid is a model of medical droid manufactured by Industrial Automaton that was common throughout the galaxy during the Clone Wars and Galactic Civil War. All 2-1B droids are equipped with encyclopedic memory banks to ensure that the droids gave the best course of medical treatment in any given medical situation.</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.8</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_2-1B_Medical_Droid</defName>
+    <label>2-1B Medical Droid</label>
+    <race>SWD_2-1B_Medical_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/2-1B_Medical_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(60, 90, 100)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/2-1B_Medical_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <color>(60, 90, 100)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--Viper_Probe_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_Viper_Probe_Droid</defName>
+    <label>Viper Probe Droid</label>
+    <description>The Viper probe droid is a model of probe droid manufactured by Arakyd Industries that is used by the Galactic Empire for deep space exploration and reconnaissance.</description>
+    <statBases>
+      <MoveSpeed>4.00</MoveSpeed>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <race>
+      <baseBodySize>0.85</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_HoverArm</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <comps>
+      <li Class="AnimalBehaviours.CompProperties_Floating"></li>
+    </comps>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SWD_BlasterBolt_Red</defaultProjectile>
+        <warmupTime>0.25</warmupTime>
+        <range>35</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_Viper_Probe_Droid</defName>
+    <label>Viper Probe Droid</label>
+    <race>SWD_Viper_Probe_Droid</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Viper_Probe_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.2</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Viper_Probe_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.2</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_Viper_Probe_Droid_Enemy</defName>
+    <label>Viper Probe Droid</label>
+    <description>The Viper probe droid is a model of probe droid manufactured by Arakyd Industries that is used by the Galactic Empire for deep space exploration and reconnaissance.</description>
+    <statBases>
+      <MoveSpeed>4.00</MoveSpeed>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <race>
+      <baseBodySize>0.85</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_HoverArm</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <comps>
+      <li Class="AnimalBehaviours.CompProperties_Floating"></li>
+      <li Class="AnimalBehaviours.CompProperties_CauseIncident">
+        <checkingInterval>450000</checkingInterval>
+        <requiresTamed>false</requiresTamed>
+        <incidentToCause>SWD_RaidEnemy_ViperDroid</incidentToCause>
+      </li>
+      <!--<li Class="SWD_StarWars_Droids.SWD_CompProperties_FactionAfterHealthLoss">
+        <healthPercent>99</healthPercent>
+        <tickInterval>50</tickInterval>
+      </li>-->
+    </comps>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SWD_BlasterBolt_Red</defaultProjectile>
+        <warmupTime>0.25</warmupTime>
+        <range>35</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind_Enemy">
+    <defName>SWD_Viper_Probe_Droid_Enemy</defName>
+    <label>Viper Probe Droid</label>
+    <race>SWD_Viper_Probe_Droid_Enemy</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Viper_Probe_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.2</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Viper_Probe_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.2</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--DT_Sentry_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_DT_Sentry_Droid</defName>
+    <label>DT Sentry Droid</label>
+    <description>The DT sentry droid is a line of sentry droids manufactured by Baktoid Combat Automata and utilized by the Galactic Empire. Imperial sentry droids, equipped with a built-in E-11 medium blaster rifle, are used as guards and combat training units.</description>
+    <statBases>
+      <MoveSpeed>1.70</MoveSpeed>
+      <ArmorRating_Heat>1.00</ArmorRating_Heat>
+      <MarketValue>1800</MarketValue>
+    </statBases>
+    <race>
+      <baseBodySize>1.2</baseBodySize>
+      <baseHealthScale>1.5</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_DT_Sentry_Droid</defName>
+    <label>DT Sentry Droid</label>
+    <race>SWD_DT_Sentry_Droid</race>
+    <combatPower>200</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/DT_Sentry_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.1</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/DT_Sentry_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.1</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+      <li>DT_E-11_Blaster_Rifle</li>
+    </weaponTags>
+  </PawnKindDef>
+  
+  <!--WA-7_Waitress_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_WA-7_Waitress_Droid</defName>
+    <label>WA-7 Waitress Droid</label>
+    <description>The WA-7 waitress droid is a service droid produced by GoCorp and Utilitech propelled by an effective unipod wheel supported by gyro-balance circuitry. The unipod's drive impellers generates enough power for quick bursts of speed ideal for use within confined spaces such as the floor of a dining establishment.</description>
+    <statBases>
+      <MoveSpeed>5.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+      <body>SWD_Droid_Body_HumanoidWheel</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_WA-7_Waitress_Droid</defName>
+    <label>WA-7 Waitress Droid</label>
+    <race>SWD_WA-7_Waitress_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/WA-7_Waitress_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.7</drawSize>
+          <color>(180, 40, 60)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/WA-7_Waitress_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.7</drawSize>
+          <color>(180, 40, 60)</color><shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <!--Astromech_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid" Name="SWD_BaseDroid_Astromech" Abstract="True">
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.6</baseBodySize>
+      <baseHealthScale>0.8</baseHealthScale>
+      <body>SWD_Droid_Body_Astromech</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <ThingDef ParentName="SWD_BaseDroid_Astromech">
+    <defName>SWD_R2_Astromech_Droid</defName>
+    <label>R2 Astromech Droid</label>
+    <description>The R2 astromech droid is a model of astromech droid produced by Industrial Automaton, boasting a level of success that was never equaled in Industrial Automaton's long history. A combination of excellent design and high-quality marketing makes this droid one of the most sought after droids in history.</description>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_R2_Astromech_Droid</defName>
+    <label>R2 Astromech Droid</label>
+    <race>SWD_R2_Astromech_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R2_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(25, 20, 160)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R2_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(25, 20, 160)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <ThingDef ParentName="SWD_BaseDroid_Astromech">
+    <defName>SWD_R3_Astromech_Droid</defName>
+    <label>R3 Astromech Droid</label>
+    <description>The R3 astromech droid is a model of astromech droid produced by Industrial Automaton. Thanks to their Intellex V processors, R3 astromechs have faster processing abilities than the more common R2 units. The transparency gives the droid's internal sensor package greater range.</description>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_R3_Astromech_Droid</defName>
+    <label>R3 Astromech Droid</label>
+    <race>SWD_R3_Astromech_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R3_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(225, 215, 15)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R3_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(225, 215, 15)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <ThingDef ParentName="SWD_BaseDroid_Astromech">
+    <defName>SWD_R4_Astromech_Droid</defName>
+    <label>R4 Agromech Droid</label>
+    <description>The R4 agromech droid is a model of astromech droid produced by Industrial Automaton. It is designed for life outside the pristine hangar bay. It is simpler, tougher, and cheaper than previous models.</description>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_R4_Astromech_Droid_A</defName>
+    <label>R4 Agromech Droid</label>
+    <race>SWD_R4_Astromech_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R4_Astromech_Droid_A</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(30, 150, 40)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R4_Astromech_Droid_A</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(30, 150, 40)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_R4_Astromech_Droid_B</defName>
+    <label>R4 Agromech Droid</label>
+    <race>SWD_R4_Astromech_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R4_Astromech_Droid_B</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(50, 120, 170)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R4_Astromech_Droid_B</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(50, 120, 170)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <ThingDef ParentName="SWD_BaseDroid_Astromech">
+    <defName>SWD_R5_Astromech_Droid</defName>
+    <label>R5 Astromech Droid</label>
+    <description>The R5 astromech droid is a model of astromech droid produced by Industrial Automaton. Cut-price versions of superior R2 units, they are low cost, but prone to malfunctions, defects, and bad attitudes.</description>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_R5_Astromech_Droid</defName>
+    <label>R5 Astromech Droid</label>
+    <race>SWD_R5_Astromech_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R5_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(210, 0, 20)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R5_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(210, 0, 20)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <ThingDef ParentName="SWD_BaseDroid_Astromech">
+    <defName>SWD_R6_Astromech_Droid</defName>
+    <label>R6 Astromech Droid</label>
+    <description>The R6 astromech droid is a model of astromech droid produced by Industrial Automaton. It is an attempt at repairing their own reputation after the tremendous failure that was their R5 series. The designers of the R6 took their time in working out every problem and glitch that plagued the previous model.</description>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_R6_Astromech_Droid</defName>
+    <label>R6 Astromech Droid</label>
+    <race>SWD_R6_Astromech_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R6_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(210, 90, 0)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/R6_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(210, 90, 0)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <ThingDef ParentName="SWD_BaseDroid_Astromech">
+    <defName>SWD_C1_Astromech_Droid</defName>
+    <label>C1 Astromech Droid</label>
+    <description>The C1 astromech droid is a model of astromech droid produced by Industrial Automaton. All C1 droids have three sensors and an antenna on the dome.</description>
+    <race>
+      <baseBodySize>0.5</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_C1_Astromech_Droid</defName>
+    <label>C1 Astromech Droid</label>
+    <race>SWD_C1_Astromech_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/C1_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(210, 60, 0)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/C1_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(210, 60, 0)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <ThingDef ParentName="SWD_BaseDroid_Astromech">
+    <defName>SWD_BB_Astromech_Droid</defName>
+    <label>BB Astromech Droid</label>
+    <description>The BB astromech droid is a model of astromech droid produced by Industrial Automaton, featuring a spherical body that allowes the droid to roll in any direction, with a head usually atop the body but not meant to be permanently physically attached to it.</description>
+    <race>
+      <baseBodySize>0.4</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_BB_Astromech_Droid</defName>
+    <label>BB Astromech Droid</label>
+    <race>SWD_BB_Astromech_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/BB_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(255, 125, 5)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/Astromechs/BB_Astromech_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(255, 125, 5)</color>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <!--MSE-6_Repair_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_MSE-6_Repair_Droid</defName>
+    <label>MSE-6 Repair Droid</label>
+    <description>The MSE-6 repair droid, sometimes referred to as the mouse droid, was a small, box-shaped, wheeled general purpose droid often used for delivery and maintenance purposes.</description>
+    <statBases>
+      <MoveSpeed>2.50</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.2</baseBodySize>
+      <baseHealthScale>0.3</baseHealthScale>
+      <body>SWD_Droid_Body_Hover</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_MSE-6_Repair_Droid</defName>
+    <label>MSE-6 Repair Droid</label>
+    <race>SWD_MSE-6_Repair_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/MSE-6_Mouse_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.7</drawSize>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/MSE-6_Mouse_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.7</drawSize>
+          <shaderType>CutoutComplex</shaderType>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <!--GU_Guardian_Police_Droid-->
+  <ThingDef ParentName="SWD_BaseDroid">
+    <defName>SWD_GU_Guardian_Police_Droid</defName>
+    <label>GU Guardian Police_Droid</label>
+    <description>...</description>
+    <statBases>
+      <MoveSpeed>2.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1.0</baseHealthScale>
+      <body>SWD_Droid_Body_Humanoid</body>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_GU_Guardian_Police_Droid</defName>
+    <label>GU Guardian Police Droid</label>
+    <race>SWD_GU_Guardian_Police_Droid</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/GU_Guardian_Police_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/GU_Guardian_Police_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.8</drawSize>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+      <li>Security_Baton</li>
+      <li>SS-410_Police_Special_Blaster_Pistol</li>
+    </weaponTags>
+  </PawnKindDef>
+
+
+  <!--==========Gonk Droid Base==========-->
+
+  <ThingDef ParentName="BasePawn" Name="SWD_BaseGonkDroid" Abstract="True">
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <PsychicSensitivity>0.25</PsychicSensitivity>
+      <ToxicResistance>1</ToxicResistance>
+      <Flammability>0</Flammability>
+      <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+      <ComfyTemperatureMax>250</ComfyTemperatureMax>
+      <MeatAmount>0</MeatAmount>
+      <ArmorRating_Heat>0.50</ArmorRating_Heat>
+      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+      <BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">1</BandwidthCost>
+      <ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">12</ControlTakingTime>
+      <ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+      <WorkSpeedGlobal MayRequire="Ludeon.Rimworld.Biotech">0.5</WorkSpeedGlobal>
+    </statBases>
+    <receivesSignals>true</receivesSignals>
+    <tradeability>None</tradeability>
+    <race>
+      <fleshType>Mechanoid</fleshType>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>VegetarianRoughAnimal</foodType>
+      <lifeExpectancy>2500</lifeExpectancy>
+      <bloodDef>Filth_MachineBits</bloodDef>
+      <nameGenerator MayRequire="Ludeon.RimWorld.Biotech">NamerMech</nameGenerator>
+      <soundCallIntervalRange>1000~2000</soundCallIntervalRange>
+      <soundCallIntervalFriendlyFactor>2</soundCallIntervalFriendlyFactor>
+      <!--<thinkTreeConstant MayRequire="Ludeon.RimWorld.Biotech">MechConstant</thinkTreeConstant>-->
+      <intelligence>ToolUser</intelligence>
+      <thinkTreeMain>SWD_Mechanoids_Machine_WeirdEater</thinkTreeMain>
+      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+      <mechWeightClass>Light</mechWeightClass>
+    </race>
+    <butcherProducts>
+      <Steel>10</Steel>
+    </butcherProducts>
+    <comps>
+      <li Class="AnimalBehaviours.CompProperties_Draftable">
+		    <makeNonFleeingToo>true</makeNonFleeingToo>
+	    </li>
+      <li Class="CompProperties_CanBeDormant" />
+      <li Class="CompProperties_WakeUpDormant">
+        <wakeUpOnDamage>true</wakeUpOnDamage>
+        <wakeUpCheckRadius>30</wakeUpCheckRadius>
+        <wakeUpSound>MechanoidsWakeUp</wakeUpSound>
+      </li>
+      <li MayRequire="Ludeon.Rimworld.Biotech" Class="CompProperties_OverseerSubject">
+        <needsOverseerEffect>MechUncontrolled</needsOverseerEffect>
+        <delayUntilFeralCheck>60000</delayUntilFeralCheck>
+        <feralMtbDays>10</feralMtbDays>
+        <feralCascadeRadialDistance>25</feralCascadeRadialDistance>
+      </li>
+      <li MayRequire="Ludeon.Rimworld.Biotech" Class="CompProperties_MechRepairable" />
+      <li Class="AnimalBehaviours.CompProperties_EatWeirdFood">
+        <customThingToEat>
+          <li>Chemfuel</li>
+        </customThingToEat>
+        <nutrition>1</nutrition>
+        <ignoreUseHitPoints>true</ignoreUseHitPoints>
+        <digThingIfMapEmpty>false</digThingIfMapEmpty>
+        <needsWater>false</needsWater>
+      </li>
+      <li Class="AnimalBehaviours.CompProperties_Electrified">
+        <electroRate>60</electroRate>
+        <electroRadius>6</electroRadius>
+        <electroChargeAmount>1</electroChargeAmount>
+        <batteriesToAffect>
+          <li>Battery</li>
+          <li>Battery_Silver</li>
+          <li>Battery_Gold</li>
+          <li>Battery_Plasteel</li>
+          <li>Battery_Uranium</li>
+          <li>Battery_Advanced</li>
+          <li>Battery_Vanometric</li>
+          <li>Battery4k</li>
+          <li>Battery16k</li>
+          <li>Battery64k</li>
+          <li>Battery256k</li>
+          <li>ChargeBack_Battery_Prototype</li>
+          <li>ChargeBack_Battery</li>
+          <li>SpeedCharge_Battery</li>
+          <li>ResonanceCell_Battery</li>
+          <li>VoidCell_Battery</li>
+          <li>VFE_LargeBattery</li>
+          <li>VFE_SmallBattery</li>
+          <li>VFE_AdvancedBattery</li>
+          <li>VFE_LargeAdvancedBattery</li>
+          <li>AA_BlueGelBattery</li>
+          <li>AA_HexaGelBattery</li>
+          <li>ShipCapacitor</li>
+          <li>ShipCapacitorSmall</li>
+        </batteriesToAffect>
+      </li>
+      <li Class="AnimalBehaviours.CompProperties_InitialHediff">
+        <hediffname>SWD_GonkDroid_HeatPusher</hediffname>
+        <hediffseverity>1</hediffseverity>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>SWD_GonkDroid_HeatPusher</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+    <description>gonk droid</description>
+    <label>gonk droid</label>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="AnimalBehaviours.HediffCompProperties_HeatPusher">
+        <heatPerSecond>6</heatPerSecond>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <LifeStageDef>
+    <defName>SWD_MechanoidFullyFormed_WeirdEater</defName>
+    <label>fully-formed</label>
+    <visible>false</visible>
+    <foodMaxFactor>50</foodMaxFactor>
+  </LifeStageDef>
+  
+  <!--GNK_Power_Droid-->
+  <ThingDef ParentName="SWD_BaseGonkDroid">
+    <defName>SWD_GNK_Power_Droid</defName>
+    <label>GNK Power Droid</label>
+    <description>The GNK power droid is a well-known type of power droid manufactured by Industrial Automaton as a knockoff of the successful EG power droid. They are often referred to as gonk droids in imitation of their honking sound. Due to a lack of the original fusion generators it needs a continuous supply of chemfuel or the generator stops working. They produce 1W per second and consume 4.5 chemfuel per day. Explodes when it dies.</description>
+    <statBases>
+      <MoveSpeed>1.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.6</baseBodySize>
+      <baseHealthScale>1.3</baseHealthScale>
+      <baseHungerRate>2.8125</baseHungerRate>
+      <body>SWD_Droid_Body_Legs</body>
+      <deathActionWorkerClass>DeathActionWorker_BigExplosion</deathActionWorkerClass>
+      <lifeStageAges>
+        <li>
+          <def>SWD_MechanoidFullyFormed_WeirdEater</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>SWD_MechanoidFullyFormed_WeirdEater</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_GNK_Power_Droid</defName>
+    <label>GNK Power Droid</label>
+    <race>SWD_GNK_Power_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/GNK_Power_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(180, 145, 115)</color>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/GNK_Power_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(180, 145, 115)</color>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <!--EG_Power_Droid-->
+  <ThingDef ParentName="SWD_BaseGonkDroid">
+    <defName>SWD_EG_Power_Droid</defName>
+    <label>EG Power Droid</label>
+    <description>The EG power droid was a model of power droid manufactured by Veril Line Systems. It emitts low honking sounds, which earns it the nickname of gonk droid. Due to a lack of the original fusion generators it needs a continuous supply of chemfuel or the generator stops working. They produce 1W per second and consume 4.5 chemfuel per day. Explodes when it dies.</description>
+    <statBases>
+      <MoveSpeed>1.00</MoveSpeed>
+    </statBases>
+    <race>
+      <baseBodySize>0.6</baseBodySize>
+      <baseHealthScale>1.3</baseHealthScale>
+      <baseHungerRate>2.8125</baseHungerRate>
+      <body>SWD_Droid_Body_Legs</body>
+      <deathActionWorkerClass>DeathActionWorker_BigExplosion</deathActionWorkerClass>
+      <lifeStageAges>
+        <li>
+          <def>SWD_MechanoidFullyFormed_WeirdEater</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+        <li>
+          <def>SWD_MechanoidFullyFormed_WeirdEater</def>
+          <minAge>100</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>4</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <PawnKindDef ParentName="SWD_BaseDroidKind">
+    <defName>SWD_EG_Power_Droid</defName>
+    <label>EG Power Droid</label>
+    <race>SWD_EG_Power_Droid</race>
+    <combatPower>45</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/EG_Power_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(95, 100, 105)</color>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Mechanoid/EG_Power_Droid</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <color>(95, 100, 105)</color>
+          <shadowData>
+            <volume>(0.3, 0.4, 0.3)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+</Defs>

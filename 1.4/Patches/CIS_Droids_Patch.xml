@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>[JDS] StarWars - The Separatist Droid Army</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <!--base body size-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_Pistoeka_Sotage_Droid"]/race</xpath>
+          <value>
+            <baseBodySize>0.3</baseBodySize>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid" or defName="JDSCIS_B1_Security_Droid" or defName="JDSCIS_B1_Commander_Droid" or defName="JDSCIS_BX_Commando_Droid" or defName="JDSCIS_IG-100_MagnaGuards" or defName="JDSCIS_T1_Tactical_Droid" or defName="JDSCIS_ST_Super_Tactical_Droid" or defName="JDSCIS_B2_Super_Battle_Droid" or defName="JDSCIS_B2_HA_Super_Battle_Droid" or defName="JDSCIS_Droideka_Droid" or defName="JDSCIS_Droideka_Sharpshooter_Droid"]/race</xpath>
+          <value>
+            <baseBodySize>1.1</baseBodySize>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_LR-57_Combat_Droid"]/race</xpath>
+          <value>
+            <baseBodySize>1.4</baseBodySize>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_Demolition_Droid" or defName="JDSCIS_AQ_Battle_Droid"]/race</xpath>
+          <value>
+            <baseBodySize>1.5</baseBodySize>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_DSD1_Dwarf_Spider_Droid"]/race</xpath>
+          <value>
+            <baseBodySize>1.6</baseBodySize>
+          </value>
+        </li>
+        
+        <!--combat power-->
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/PawnKindDef[defName="JDSCIS_B1_Battle_Droid" or defName="JDSCIS_B1_Security_Droid" or defName="JDSCIS_B1_Commander_Droid" or defName="JDSCIS_T1_Tactical_Droid" or defName="JDSCIS_ST_Super_Tactical_Droid" or defName="JDSCIS_BX_Commando_Droid" or defName="JDSCIS_IG-100_MagnaGuards"]/combatPower</xpath>
+          <value>
+            <combatPower>75</combatPower>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/PawnKindDef[defName="JDSCIS_Droideka_Droid" or defName="JDSCIS_Droideka_Sharpshooter_Droid"]/combatPower</xpath>
+          <value>
+            <combatPower>150</combatPower>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/PawnKindDef[defName="JDSCIS_B2_Super_Battle_Droid" or defName="JDSCIS_B2_HA_Super_Battle_Droid"]/combatPower</xpath>
+          <value>
+            <combatPower>200</combatPower>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/PawnKindDef[defName="JDSCIS_AQ_Battle_Droid" or defName="JDSCIS_Demolition_Droid" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid" or defName="JDSCIS_LR-57_Combat_Droid"]/combatPower</xpath>
+          <value>
+            <combatPower>250</combatPower>
+          </value>
+        </li>
+
+        <!--market value-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid" or defName="JDSCIS_B1_Security_Droid" or defName="JDSCIS_B1_Commander_Droid" or defName="JDSCIS_T1_Tactical_Droid" or defName="JDSCIS_ST_Super_Tactical_Droid" or defName="JDSCIS_BX_Commando_Droid" or defName="JDSCIS_IG-100_MagnaGuards" or defName="JDSCIS_Droideka_Droid" or defName="JDSCIS_Droideka_Sharpshooter_Droid"]/statBases</xpath>
+          <value>
+            <MarketValue>1200</MarketValue>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_Pistoeka_Sotage_Droid"]/statBases</xpath>
+          <value>
+            <MarketValue>800</MarketValue>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_B2_Super_Battle_Droid" or defName="JDSCIS_B2_HA_Super_Battle_Droid"]/statBases</xpath>
+          <value>
+            <MarketValue>1800</MarketValue>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_AQ_Battle_Droid" or defName="JDSCIS_Demolition_Droid" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid" or defName="JDSCIS_LR-57_Combat_Droid"]/statBases</xpath>
+          <value>
+            <MarketValue>2600</MarketValue>
+          </value>
+        </li>
+        
+        <!--dwarf spider droid-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_DSD1_Dwarf_Spider_Droid"]</xpath>
+          <value>
+            <verbs>
+              <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Mid_Red_Blaster_Bolt</defaultProjectile>
+                <warmupTime>0.25</warmupTime>
+                <range>35</range>
+                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                <burstShotCount>2</burstShotCount>
+                <soundCast>E-5_Bblaster_Rifle_Shot</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+              </li>
+            </verbs>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_DSD1_Dwarf_Spider_Droid"]/race</xpath>
+          <value>
+            <deathActionWorkerClass>DeathActionWorker_BigExplosion</deathActionWorkerClass>
+          </value>
+        </li>
+
+        <!--work droids-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="JDSCIS_T1_Tactical_Droid" or defName="JDSCIS_ST_Super_Tactical_Droid"]/race</xpath>
+          <value>
+            <mechEnabledWorkTypes>
+              <li>Research</li>
+            </mechEnabledWorkTypes>
+          </value>
+        </li>
+        
+        <!--faction changes-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/FactionDef[defName="JDSCIS_CIS_Faction"]/pawnGroupMakers</xpath>
+          <value>
+            <li>
+              <!-- D-Wing Droid only -->
+              <kindDef>Combat</kindDef>
+              <commonality>30</commonality>
+              <options>
+                <SWD_D-Wing_Air_Support_Droid_Enemy>20</SWD_D-Wing_Air_Support_Droid_Enemy>
+              </options>
+            </li>
+          </value>
+        </li>
+        <!--<li Class="PatchOperationReplace">
+          <xpath>Defs/FactionDef[defName="JDSCIS_CIS_Faction"]/hidden</xpath>
+          <value>
+            <hidden>false</hidden>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/FactionDef[defName="JDSCIS_CIS_Faction"]/allowedArrivalTemperatureRange</xpath>
+          <value>
+            <allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/FactionDef[defName="JDSCIS_CIS_Faction"]</xpath>
+          <value>
+            <leaderTitle>Commander</leaderTitle>
+          </value>
+        </li>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/FactionDef[defName="JDSCIS_CIS_Faction"]</xpath>
+          <value>
+            <li Class="VFECore.FactionDefExtension">
+              <excludeFromCommConsole>true</excludeFromCommConsole>
+              <excludeFromQuests>true</excludeFromQuests>
+            </li>
+          </value>
+        </li>-->
+        
+        <!--BX commando droid shield-->
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/PawnKindDef[defName="JDSCIS_BX_Commando_Droid"]</xpath>
+          <value>
+            <li Class="VFECore.PawnKindDefExtension">
+              <shieldMoney>
+                <min>9999</min>
+                <max>9999</max>
+              </shieldMoney>
+              <shieldTags>
+                <li>Commando_Droid_Personal_Shield</li>
+              </shieldTags>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>
+

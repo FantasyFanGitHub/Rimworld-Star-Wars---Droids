@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>[JDS] StarWars - Armory</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SWD_DT_E-11_Blaster_Rifle" or defName="SWD_E-22_Blaster_Rifle"]/verbs/li/defaultProjectile</xpath>
+          <value>
+            <defaultProjectile>Mid_Red_Blaster_Bolt</defaultProjectile>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SWD_SS-410_Police_Special_Blaster_Pistol"]/verbs/li/defaultProjectile</xpath>
+          <value>
+            <defaultProjectile>Low_Blue_Blaster_Bolt</defaultProjectile>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SWD_D-Wing_Air_Support_Droid" or defName="SWD_Viper_Probe_Droid"]/verbs/li/defaultProjectile</xpath>
+          <value>
+            <defaultProjectile>Mid_Red_Blaster_Bolt</defaultProjectile>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/HediffDef[defName="SWD_E-XD_Combat_Mode"]/comps/li[1]/verbs/li/defaultProjectile</xpath>
+          <value>
+            <defaultProjectile>Mid_Red_Blaster_Bolt</defaultProjectile>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SWD_SS-410_Police_Special_Blaster_Pistol"]/verbs/li/soundCast</xpath>
+          <value>
+            <soundCast>DC-17_Blaster_Pistol_Shot</soundCast>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SWD_DT_E-11_Blaster_Rifle" or defName="SWD_E-22_Blaster_Rifle"]/verbs/li/soundCast</xpath>
+          <value>
+            <soundCast>DC-15A_Blaster_Rifle_Shot</soundCast>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="SWD_D-Wing_Air_Support_Droid" or defName="SWD_Viper_Probe_Droid"]/verbs/li/soundCast</xpath>
+          <value>
+            <soundCast>E-5_Bblaster_Rifle_Shot</soundCast>
+          </value>
+        </li>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="JDSA_E-5_Blaster_Rifle"]</xpath>
+          <value>
+            <li Class="VFECore.ThingDefExtension">
+              <usableWithShields>true</usableWithShields>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Biotech</li>
+    </mods>
+    <!--<nomatch Class="PatchOperationFindMod">
+      <mods>
+        <li>Outer Rim - Separatists</li>
+      </mods>-->
+      <nomatch Class="PatchOperationFindMod">
+        <mods>
+          <li>Vanilla Factions Expanded - Mechanoids</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+          <mods>
+            <li>[JDS] StarWars - The Separatist Droid Army</li>
+          </mods>
+          <match Class="PatchOperationSequence">
+            <operations>
+              <!--combat droid race-->
+              <li Class="PatchOperationSequence">
+                <operations>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_Pistoeka_Sotage_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_Pistoeka_Sotage_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B1_Battle_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_B1_Security_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B1_Security_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_B1_Commander_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B1_Commander_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_BX_Commando_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_BX_Commando_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_IG-100_MagnaGuards"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_IG-100_MagnaGuards</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_T1_Tactical_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_T1_Tactical_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_ST_Super_Tactical_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_ST_Super_Tactical_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_B2_Super_Battle_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B2_Super_Battle_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_B2_HA_Super_Battle_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B2_HA_Super_Battle_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_AQ_Battle_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_AQ_Battle_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_Droideka_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_Droideka_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_Droideka_Sharpshooter_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_Droideka_Sharpshooter_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_Demolition_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_Demolition_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_DSD1_Dwarf_Spider_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_DSD1_Dwarf_Spider_Droid</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/ThingDef[defName="JDSCIS_LR-57_Combat_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_LR-57_Combat_Droid</value>
+                  </li>
+
+
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_Pistoeka_Sotage_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_Pistoeka_Sotage_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_B1_Battle_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B1_Battle_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_B1_Security_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B1_Security_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_B1_Commander_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B1_Commander_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_BX_Commando_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_BX_Commando_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_IG-100_MagnaGuards"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_IG-100_MagnaGuards_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_T1_Tactical_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_T1_Tactical_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_ST_Super_Tactical_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_ST_Super_Tactical_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_B2_Super_Battle_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B2_Super_Battle_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_B2_HA_Super_Battle_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_B2_HA_Super_Battle_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_AQ_Battle_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_AQ_Battle_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_Droideka_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_Droideka_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_Droideka_Sharpshooter_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_Droideka_Sharpshooter_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_Demolition_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_Demolition_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_DSD1_Dwarf_Spider_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_DSD1_Dwarf_Spider_Droid_Machine</value>
+                  </li>
+                  <li Class="PatchOperationAttributeAdd">
+                    <xpath>Defs/PawnKindDef[defName="JDSCIS_LR-57_Combat_Droid"]</xpath>
+                    <attribute>Name</attribute>
+                    <value>JDSCIS_LR-57_Combat_Droid_Machine</value>
+                  </li>
+                </operations>
+              </li>
+
+              <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                  <ThingDef ParentName="JDSCIS_Pistoeka_Sotage_Droid">
+                    <defName>JDSCIS_Pistoeka_Sotage_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_B1_Battle_Droid">
+                    <defName>JDSCIS_B1_Battle_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_B1_Security_Droid">
+                    <defName>JDSCIS_B1_Security_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_B1_Commander_Droid">
+                    <defName>JDSCIS_B1_Commander_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_BX_Commando_Droid">
+                    <defName>JDSCIS_BX_Commando_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_IG-100_MagnaGuards">
+                    <defName>JDSCIS_IG-100_MagnaGuards_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_T1_Tactical_Droid">
+                    <defName>JDSCIS_T1_Tactical_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_ST_Super_Tactical_Droid">
+                    <defName>JDSCIS_ST_Super_Tactical_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_B2_Super_Battle_Droid">
+                    <defName>JDSCIS_B2_Super_Battle_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_B2_HA_Super_Battle_Droid">
+                    <defName>JDSCIS_B2_HA_Super_Battle_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_AQ_Battle_Droid">
+                    <defName>JDSCIS_AQ_Battle_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_Droideka_Droid">
+                    <defName>JDSCIS_Droideka_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_Droideka_Sharpshooter_Droid">
+                    <defName>JDSCIS_Droideka_Sharpshooter_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_Demolition_Droid">
+                    <defName>JDSCIS_Demolition_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_DSD1_Dwarf_Spider_Droid">
+                    <defName>JDSCIS_DSD1_Dwarf_Spider_Droid_Machine</defName>
+                  </ThingDef>
+                  <ThingDef ParentName="JDSCIS_LR-57_Combat_Droid">
+                    <defName>JDSCIS_LR-57_Combat_Droid_Machine</defName>
+                  </ThingDef>
+
+
+                  <PawnKindDef ParentName="JDSCIS_Pistoeka_Sotage_Droid_Machine">
+                    <defName>JDSCIS_Pistoeka_Sotage_Droid_Machine</defName>
+                    <race>JDSCIS_Pistoeka_Sotage_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_B1_Battle_Droid_Machine">
+                    <defName>JDSCIS_B1_Battle_Droid_Machine</defName>
+                    <race>JDSCIS_B1_Battle_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_B1_Security_Droid_Machine">
+                    <defName>JDSCIS_B1_Security_Droid_Machine</defName>
+                    <race>JDSCIS_B1_Security_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_B1_Commander_Droid_Machine">
+                    <defName>JDSCIS_B1_Commander_Droid_Machine</defName>
+                    <race>JDSCIS_B1_Commander_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_BX_Commando_Droid_Machine">
+                    <defName>JDSCIS_BX_Commando_Droid_Machine</defName>
+                    <race>JDSCIS_BX_Commando_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_IG-100_MagnaGuards_Machine">
+                    <defName>JDSCIS_IG-100_MagnaGuards_Machine</defName>
+                    <race>JDSCIS_IG-100_MagnaGuards_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_T1_Tactical_Droid_Machine">
+                    <defName>JDSCIS_T1_Tactical_Droid_Machine</defName>
+                    <race>JDSCIS_T1_Tactical_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_ST_Super_Tactical_Droid_Machine">
+                    <defName>JDSCIS_ST_Super_Tactical_Droid_Machine</defName>
+                    <race>JDSCIS_ST_Super_Tactical_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_B2_Super_Battle_Droid_Machine">
+                    <defName>JDSCIS_B2_Super_Battle_Droid_Machine</defName>
+                    <race>JDSCIS_B2_Super_Battle_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_B2_HA_Super_Battle_Droid_Machine">
+                    <defName>JDSCIS_B2_HA_Super_Battle_Droid_Machine</defName>
+                    <race>JDSCIS_B2_HA_Super_Battle_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_AQ_Battle_Droid_Machine">
+                    <defName>JDSCIS_AQ_Battle_Droid_Machine</defName>
+                    <race>JDSCIS_AQ_Battle_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_Droideka_Droid_Machine">
+                    <defName>JDSCIS_Droideka_Droid_Machine</defName>
+                    <race>JDSCIS_Droideka_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_Droideka_Sharpshooter_Droid_Machine">
+                    <defName>JDSCIS_Droideka_Sharpshooter_Droid_Machine</defName>
+                    <race>JDSCIS_Droideka_Sharpshooter_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_Demolition_Droid_Machine">
+                    <defName>JDSCIS_Demolition_Droid_Machine</defName>
+                    <race>JDSCIS_Demolition_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_DSD1_Dwarf_Spider_Droid_Machine">
+                    <defName>JDSCIS_DSD1_Dwarf_Spider_Droid_Machine</defName>
+                    <race>JDSCIS_DSD1_Dwarf_Spider_Droid_Machine</race>
+                  </PawnKindDef>
+                  <PawnKindDef ParentName="JDSCIS_LR-57_Combat_Droid_Machine">
+                    <defName>JDSCIS_LR-57_Combat_Droid_Machine</defName>
+                    <race>JDSCIS_LR-57_Combat_Droid_Machine</race>
+                  </PawnKindDef>
+                </value>
+              </li>
+
+              <!--combat droids-->
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid_Machine" or defName="JDSCIS_B1_Security_Droid_Machine" or defName="JDSCIS_B1_Commander_Droid_Machine" or defName="JDSCIS_BX_Commando_Droid_Machine" or defName="JDSCIS_IG-100_MagnaGuards_Machine" or defName="JDSCIS_B2_Super_Battle_Droid_Machine" or defName="JDSCIS_B2_HA_Super_Battle_Droid_Machine" or defName="JDSCIS_AQ_Battle_Droid_Machine" or defName="JDSCIS_Demolition_Droid_Machine" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid_Machine" or defName="JDSCIS_LR-57_Combat_Droid_Machine" or defName="JDSCIS_T1_Tactical_Droid_Machine" or defName="JDSCIS_ST_Super_Tactical_Droid_Machine" or defName="JDSCIS_Droideka_Droid_Machine" or defName="JDSCIS_Droideka_Sharpshooter_Droid_Machine" or defName="JDSCIS_Pistoeka_Sotage_Droid_Machine"]</xpath>
+                <value>
+                  <thingClass>VFEMech.Machine</thingClass>
+                </value>
+              </li>
+
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_Pistoeka_Sotage_Droid_Machine"]</xpath>
+                <value>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_Machine">
+                      <violent>true</violent>
+                      <hoursActive>24</hoursActive>
+                    </li>
+                  </comps>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid_Machine" or defName="JDSCIS_B1_Security_Droid_Machine" or defName="JDSCIS_B1_Commander_Droid_Machine" or defName="JDSCIS_BX_Commando_Droid_Machine" or defName="JDSCIS_IG-100_MagnaGuards_Machine" or defName="JDSCIS_B2_Super_Battle_Droid_Machine" or defName="JDSCIS_B2_HA_Super_Battle_Droid_Machine" or defName="JDSCIS_AQ_Battle_Droid_Machine" or defName="JDSCIS_Demolition_Droid_Machine" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid_Machine" or defName="JDSCIS_LR-57_Combat_Droid_Machine"]</xpath>
+                <value>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_Machine">
+                      <violent>true</violent>
+                      <hoursActive>48</hoursActive>
+                    </li>
+                  </comps>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_T1_Tactical_Droid_Machine" or defName="JDSCIS_ST_Super_Tactical_Droid_Machine" or defName="JDSCIS_Droideka_Sharpshooter_Droid_Machine" or defName="JDSCIS_Droideka_Droid_Machine"]</xpath>
+                <value>
+                  <comps>
+                    <li Class="VFE.Mechanoids.CompProperties_Machine">
+                      <violent>true</violent>
+                      <hoursActive>72</hoursActive>
+                    </li>
+                  </comps>
+                </value>
+              </li>
+
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid_Machine" or defName="JDSCIS_B1_Security_Droid_Machine" or defName="JDSCIS_B1_Commander_Droid_Machine" or defName="JDSCIS_BX_Commando_Droid_Machine" or defName="JDSCIS_IG-100_MagnaGuards_Machine" or defName="JDSCIS_B2_Super_Battle_Droid_Machine" or defName="JDSCIS_B2_HA_Super_Battle_Droid_Machine" or defName="JDSCIS_AQ_Battle_Droid_Machine" or defName="JDSCIS_Demolition_Droid_Machine" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid_Machine" or defName="JDSCIS_LR-57_Combat_Droid" or defName="JDSCIS_T1_Tactical_Droid_Machine" or defName="JDSCIS_ST_Super_Tactical_Droid_Machine" or defName="JDSCIS_Droideka_Droid_Machine" or defName="JDSCIS_Droideka_Sharpshooter_Droid_Machine" or defName="JDSCIS_Pistoeka_Sotage_Droid_Machine"]/race</xpath>
+                <value>
+                  <thinkTreeMain Inherit="False">VFE_Mechanoids_ViolentMachine</thinkTreeMain>
+                </value>
+              </li>
+
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid" or defName="JDSCIS_B1_Security_Droid" or defName="JDSCIS_B1_Commander_Droid" or defName="JDSCIS_BX_Commando_Droid"]</xpath>
+                <value>
+                  <butcherProducts Inherit="False">
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                    <Plasteel>25</Plasteel>
+                  </butcherProducts>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_B2_Super_Battle_Droid" or defName="JDSCIS_B2_HA_Super_Battle_Droid" or defName="JDSCIS_AQ_Battle_Droid" or defName="JDSCIS_Demolition_Droid" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid" or defName="JDSCIS_LR-57_Combat_Droid"]</xpath>
+                <value>
+                  <butcherProducts Inherit="False">
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                    <Plasteel>45</Plasteel>
+                  </butcherProducts>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_Pistoeka_Sotage_Droid"]</xpath>
+                <value>
+                  <butcherProducts Inherit="False">
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>1</ComponentSpacer>
+                    <Plasteel>15</Plasteel>
+                  </butcherProducts>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_T1_Tactical_Droid" or defName="JDSCIS_ST_Super_Tactical_Droid" or defName="JDSCIS_Droideka_Droid" or defName="JDSCIS_Droideka_Sharpshooter_Droid"]</xpath>
+                <value>
+                  <butcherProducts Inherit="False">
+                    <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                    <ComponentSpacer>2</ComponentSpacer>
+                    <Plasteel>25</Plasteel>
+                  </butcherProducts>
+                </value>
+              </li>
+
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_B1_Battle_Droid" or defName="JDSCIS_B1_Security_Droid" or defName="JDSCIS_B1_Commander_Droid" or defName="JDSCIS_T1_Tactical_Droid" or defName="JDSCIS_ST_Super_Tactical_Droid"]/statBases</xpath>
+                <value>
+                  <ArmorRating_Blunt>0.26</ArmorRating_Blunt>
+                  <ArmorRating_Sharp>0.26</ArmorRating_Sharp>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_BX_Commando_Droid" or defName="JDSCIS_IG-100_MagnaGuards" or defName="JDSCIS_Droideka_Droid" or defName="JDSCIS_Droideka_Sharpshooter_Droid"]/statBases</xpath>
+                <value>
+                  <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+                  <ArmorRating_Sharp>0.26</ArmorRating_Sharp>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_B2_Super_Battle_Droid" or defName="JDSCIS_B2_HA_Super_Battle_Droid"]/statBases</xpath>
+                <value>
+                  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+                  <ArmorRating_Sharp>0.31</ArmorRating_Sharp>
+                </value>
+              </li>
+              <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="JDSCIS_AQ_Battle_Droid" or defName="JDSCIS_Demolition_Droid" or defName="JDSCIS_DSD1_Dwarf_Spider_Droid" or defName="JDSCIS_LR-57_Combat_Droid"]/statBases</xpath>
+                <value>
+                  <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+                  <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+                </value>
+              </li>
+
+              <!--charging station-->
+              <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_Pistoeka_Sotage_Droid_Base</defName>
+                    <label>pistoeka sotage droid charging station</label>
+                    <costList>
+                      <Steel>30</Steel>
+                      <Plasteel>20</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_Pistoeka_Sotage_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1200</extraChargingPower>
+                        <hoursToRecharge>12</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_B1_Battle_Droid_Base</defName>
+                    <label>B1 battle droid charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_B1_Battle_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1200</extraChargingPower>
+                        <hoursToRecharge>12</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_B1_Security_Droid_Base</defName>
+                    <label>B1 security droid charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_B1_Security_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1200</extraChargingPower>
+                        <hoursToRecharge>12</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_B1_Commander_Droid_Base</defName>
+                    <label>B1 commander droid charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_B1_Commander_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1200</extraChargingPower>
+                        <hoursToRecharge>12</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_BX_Commando_Droid_Base</defName>
+                    <label>BX commando droid charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_BX_Commando_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1200</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_IG-100_MagnaGuards_Base</defName>
+                    <label>IG-100 magna guards charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_IG-100_MagnaGuards_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_T1_Tactical_Droid_Base</defName>
+                    <label>T1 tactical droid charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_T1_Tactical_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>12</hoursToRecharge>
+                        <skillLevel>10</skillLevel>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_ST_Super_Tactical_Droid_Base</defName>
+                    <label>ST super tactical droid charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_ST_Super_Tactical_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>12</hoursToRecharge>
+                        <skillLevel>10</skillLevel>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_B2_Super_Battle_Droid_Base</defName>
+                    <label>B2 super battle droid charging station</label>
+                    <costList>
+                      <Plasteel>65</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_B2_Super_Battle_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_B2_HA_Super_Battle_Droid_Base</defName>
+                    <label>B2 HA super battle droid charging station</label>
+                    <costList>
+                      <Plasteel>65</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_B2_HA_Super_Battle_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_AQ_Battle_Droid_Base</defName>
+                    <label>AQ battle droid charging station</label>
+                    <costList>
+                      <Plasteel>65</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_AQ_Battle_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_Droideka_Droid_Base</defName>
+                    <label>droideka droid charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_Droideka_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_Droideka_Sharpshooter_Droid_Base</defName>
+                    <label>droideka sharpshooter droid charging station</label>
+                    <costList>
+                      <Plasteel>45</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_Droideka_Sharpshooter_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>12</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_Demolition_Droid_Base</defName>
+                    <label>demolition droid charging station</label>
+                    <costList>
+                      <Plasteel>65</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_Demolition_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_DSD1_Dwarf_Spider_Droid_Base</defName>
+                    <label>DSD1 dwarf spider droid charging station</label>
+                    <costList>
+                      <Plasteel>65</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_DSD1_Dwarf_Spider_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+
+                  <ThingDef ParentName="SWD_ChargingStation_Base">
+                    <defName>JDSCIS_LR-57_Combat_Droid_Base</defName>
+                    <label>LR-57 combat droid charging station</label>
+                    <costList>
+                      <Plasteel>65</Plasteel>
+                      <VFE_ComponentMechanoid>1</VFE_ComponentMechanoid>
+                      <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                    <researchPrerequisites>
+                      <li>VFE_BasicDroneAssembly</li>
+                    </researchPrerequisites>
+                    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+                    <comps>
+                      <li Class="VFE.Mechanoids.CompProperties_MachineChargingStation">
+                        <pawnToSpawn>JDSCIS_LR-57_Combat_Droid_Machine</pawnToSpawn>
+                        <extraChargingPower>1600</extraChargingPower>
+                        <hoursToRecharge>24</hoursToRecharge>
+                      </li>
+                    </comps>
+                  </ThingDef>
+                </value>
+              </li>
+            </operations>
+          </match>
+        </match>
+      </nomatch>
+    <!--</nomatch>-->
+  </Operation>
+
+</Patch>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

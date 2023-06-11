@@ -1,0 +1,1257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <!--<mods>
+      <li>Outer Rim - Separatists</li>
+    </mods>
+    <nomatch Class="PatchOperationFindMod">-->
+      <mods>
+        <li>Biotech</li>
+      </mods>
+      <match Class="PatchOperationSequence">
+        <operations>
+          <!--work droids-->
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/WorkGiverDef[defName="Research" or defName="LongRangeScan" or defName="GroundPenetratingScan"]/canBeDoneByMechs</xpath>
+            <value>
+              <canBeDoneByMechs>true</canBeDoneByMechs>
+            </value>
+          </li>
+          
+          <!--work droids-->
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_DUM_Pit_Droid"]/race</xpath>
+            <value>
+              <mechEnabledWorkTypes>
+                <li>Cleaning</li>
+                <li>Hauling</li>
+                <li>Construction</li>
+              </mechEnabledWorkTypes>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_MSE-6_Repair_Droid"]/race</xpath>
+            <value>
+              <mechEnabledWorkTypes>
+                <li>Cleaning</li>
+                <li>Hauling</li>
+              </mechEnabledWorkTypes>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_DLC-13_Mining_Droid"]/race</xpath>
+            <value>
+              <mechEnabledWorkTypes>
+                <li>Mining</li>
+                <li>Hauling</li>
+              </mechEnabledWorkTypes>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_WA-7_Waitress_Droid" or defName="SWD_DG-1B_Catering_Droid"]/race</xpath>
+            <value>
+              <mechEnabledWorkTypes>
+                <li>Cooking</li>
+              </mechEnabledWorkTypes>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_2-1B_Medical_Droid"]/race</xpath>
+            <value>
+              <mechEnabledWorkTypes>
+                <li>Doctor</li>
+              </mechEnabledWorkTypes>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_3PO_Protocol_Droid" or defName="SWD_3PX_Protocol_Droid" or defName="SWD_RA-7_Protocol_Droid" or defName="SWD_RQ_Protocol_Droid" or defName="SWD_E-XD_Infiltrator_Droid"]/race</xpath>
+            <value>
+              <mechEnabledWorkTypes>
+                <li>BasicWorker</li>
+                <li>Hauling</li>
+              </mechEnabledWorkTypes>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_TC_Protocol_Droid"]/race</xpath>
+            <value>
+              <mechEnabledWorkTypes>
+                <li>BasicWorker</li>
+                <li>Hauling</li>
+                <li>Research</li>
+              </mechEnabledWorkTypes>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_C1_Astromech_Droid" or defName="SWD_BB_Astromech_Droid"]/race</xpath>
+            <value>
+              <mechEnabledWorkTypes>
+                <li>BasicWorker</li>
+                <li>Crafting</li>
+              </mechEnabledWorkTypes>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_R2_Astromech_Droid" or defName="SWD_R3_Astromech_Droid" or defName="SWD_R4_Astromech_Droid" or defName="SWD_R5_Astromech_Droid" or defName="SWD_R6_Astromech_Droid"]</xpath>
+            <value>
+              <race>
+                <mechEnabledWorkTypes>
+                  <li>BasicWorker</li>
+                  <li>Crafting</li>
+                </mechEnabledWorkTypes>
+              </race>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_TC_Protocol_Droid" or defName="SWD_3PO_Protocol_Droid" or defName="SWD_3PX_Protocol_Droid" or defName="SWD_RA-7_Protocol_Droid" or defName="SWD_RQ_Protocol_Droid" or defName="SWD_DG-1B_Catering_Droid" or defName="SWD_WA-7_Waitress_Droid" or defName="SWD_2-1B_Medical_Droid" or defName="SWD_DUM_Pit_Droid" or defName="SWD_DLC-13_Mining_Droid" or defName="SWD_R2_Astromech_Droid" or defName="SWD_R3_Astromech_Droid" or defName="SWD_R4_Astromech_Droid" or defName="SWD_R5_Astromech_Droid" or defName="SWD_R6_Astromech_Droid" or defName="SWD_C1_Astromech_Droid" or defName="SWD_BB_Astromech_Droid" or defName="SWD_MSE-6_Repair_Droid"]</xpath>
+            <value>
+              <butcherProducts Inherit="False">
+                <Steel>10</Steel>
+              </butcherProducts>
+            </value>
+          </li>
+          
+          <!--combat droids-->
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_E-XD_Infiltrator_Droid" or defName="SWD_D-Wing_Air_Support_Droid" or defName="SWD_Viper_Probe_Droid_Enemy" or defName="SWD_Viper_Probe_Droid" or defName="SWD_KX_Security_Droid" or defName="SWD_GU_Guardian_Police_Droid"]/statBases</xpath>
+            <value>
+              <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+              <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_DT_Sentry_Droid"]/statBases</xpath>
+            <value>
+              <ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+              <ArmorRating_Sharp>0.56</ArmorRating_Sharp>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_E-XD_Infiltrator_Droid" or defName="SWD_D-Wing_Air_Support_Droid" or defName="SWD_Viper_Probe_Droid_Enemy" or defName="SWD_Viper_Probe_Droid" or defName="SWD_KX_Security_Droid" or defName="SWD_GU_Guardian_Police_Droid"]</xpath>
+            <value>
+              <butcherProducts Inherit="False">
+                <Steel>10</Steel>
+              </butcherProducts>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SWD_DT_Sentry_Droid"]</xpath>
+            <value>
+              <butcherProducts Inherit="False">
+                <Steel>20</Steel>
+                <Plasteel>5</Plasteel>
+              </butcherProducts>
+            </value>
+          </li>
+
+          <!--mechanoid creation-->
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="MechGestator"]/recipes</xpath>
+            <value>
+              <li>SWD_3PO_Protocol_Droid_Recipe</li>
+              <li>SWD_TC_Protocol_Droid_Recipe</li>
+              <li>SWD_3PX_Protocol_Droid_Recipe</li>
+              <li>SWD_RA-7_Protocol_Droid_Recipe</li>
+              <li>SWD_RQ_Protocol_Droid_Recipe</li>
+              <li>SWD_E-XD_Infiltrator_Droid_Recipe</li>
+              <li>SWD_DG-1B_Catering_Droid_Recipe</li>
+              <li>SWD_DLC-13_Mining_Droid_Recipe</li>
+              <li>SWD_DUM_Pit_Droid_Recipe</li>
+              <li>SWD_D-Wing_Air_Support_Droid_Recipe</li>
+              <li>SWD_IT-O_Interrogator_Droid_Recipe</li>
+              <li>SWD_KX_Security_Droid_Recipe</li>
+              <li>SWD_2-1B_Medical_Droid_Recipe</li>
+              <li>SWD_Viper_Probe_Droid_Recipe</li>
+              <li>SWD_WA-7_Waitress_Droid_Recipe</li>
+              <li>SWD_R2_Astromech_Droid_Recipe</li>
+              <li>SWD_R3_Astromech_Droid_Recipe</li>
+              <li>SWD_R4_Astromech_Droid_Recipe</li>
+              <li>SWD_R5_Astromech_Droid_Recipe</li>
+              <li>SWD_R6_Astromech_Droid_Recipe</li>
+              <li>SWD_C1_Astromech_Droid_Recipe</li>
+              <li>SWD_BB_Astromech_Droid_Recipe</li>
+              <li>SWD_MSE-6_Repair_Droid_Recipe</li>
+              <li>SWD_GU_Guardian_Police_Droid_Recipe</li>
+              <li>SWD_EG_Power_Droid_Recipe</li>
+              <li>SWD_GNK_Power_Droid_Recipe</li>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="LargeMechGestator"]/recipes</xpath>
+            <value>
+              <li>SWD_DT_Sentry_Droid_Recipe</li>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs</xpath>
+            <value>
+              <!--Recipe Base-->
+              <RecipeDef Name="SWD_BaseDroidRecipe" Abstract="True">
+                <jobString>Gestating mech.</jobString>
+                <workAmount>1800</workAmount>
+                <gestationCycles>2</gestationCycles>
+                <formingTicks>120000</formingTicks>
+                <!-- 2 days -->
+                <mechanitorOnlyRecipe>true</mechanitorOnlyRecipe>
+                <workSpeedStat>MechFormingSpeed</workSpeedStat>
+                <soundWorking>MechGestatorCycle_Initiating</soundWorking>
+              </RecipeDef>
+
+              <!--work droids-->
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_3PO_Protocol_Droid_Recipe</defName>
+                <label>assembly 3PO Protocol Droid</label>
+                <description>assembly a 3PO protocol droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_3PO_Protocol_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_3PO_Protocol_Droid>1</SWD_3PO_Protocol_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_TC_Protocol_Droid_Recipe</defName>
+                <label>assembly TC Protocol Droid</label>
+                <description>assembly a TC protocol droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_TC_Protocol_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_TC_Protocol_Droid>1</SWD_TC_Protocol_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>4</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_3PX_Protocol_Droid_Recipe</defName>
+                <label>assembly 3PX Protocol Droid</label>
+                <description>assembly a 3PX protocol droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_3PX_Protocol_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_3PX_Protocol_Droid>1</SWD_3PX_Protocol_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_RA-7_Protocol_Droid_Recipe</defName>
+                <label>assembly RA-7 Protocol Droid</label>
+                <description>assembly a RA-7 protocol droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_RA-7_Protocol_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_RA-7_Protocol_Droid>1</SWD_RA-7_Protocol_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_RQ_Protocol_Droid_Recipe</defName>
+                <label>assembly RQ Protocol Droid</label>
+                <description>assembly a RQ protocol droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_RQ_Protocol_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_RQ_Protocol_Droid>1</SWD_RQ_Protocol_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_DG-1B_Catering_Droid_Recipe</defName>
+                <label>assembly DG-1B Catering Droid</label>
+                <description>assembly a DG-1B catering droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_DG-1B_Catering_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_DG-1B_Catering_Droid>1</SWD_DG-1B_Catering_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_DLC-13_Mining_Droid_Recipe</defName>
+                <label>assembly DLC-13 Mining Droid</label>
+                <description>assembly a DLC-13 mining droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_DLC-13_Mining_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_DLC-13_Mining_Droid>1</SWD_DLC-13_Mining_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_DUM_Pit_Droid_Recipe</defName>
+                <label>assembly DUM Pit Droid</label>
+                <description>assembly a DUM pit droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_DUM_Pit_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_DUM_Pit_Droid>1</SWD_DUM_Pit_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_IT-O_Interrogator_Droid_Recipe</defName>
+                <label>assembly IT-O Interrogator Droid</label>
+                <description>assembly a IT-O interrogator droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_IT-O_Interrogator_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_IT-O_Interrogator_Droid>1</SWD_IT-O_Interrogator_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_2-1B_Medical_Droid_Recipe</defName>
+                <label>assembly 2-1B Medical Droid</label>
+                <description>assembly a 2-1B medical droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_2-1B_Medical_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_2-1B_Medical_Droid>1</SWD_2-1B_Medical_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>100</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_WA-7_Waitress_Droid_Recipe</defName>
+                <label>assembly WA-7 Waitress Droid</label>
+                <description>assembly a WA-7 waitress droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_WA-7_Waitress_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_WA-7_Waitress_Droid>1</SWD_WA-7_Waitress_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_R2_Astromech_Droid_Recipe</defName>
+                <label>assembly R2 Astromech Droid</label>
+                <description>assembly a R2 astromech droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_R2_Astromech_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_R2_Astromech_Droid>1</SWD_R2_Astromech_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_R3_Astromech_Droid_Recipe</defName>
+                <label>assembly R3 Astromech Droid</label>
+                <description>assembly a R3 astromech droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_R3_Astromech_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_R3_Astromech_Droid>1</SWD_R3_Astromech_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_R4_Astromech_Droid_Recipe</defName>
+                <label>assembly R4 Astromech Droid</label>
+                <description>assembly a R4 astromech droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_R4_Astromech_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_R4_Astromech_Droid>1</SWD_R4_Astromech_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_R5_Astromech_Droid_Recipe</defName>
+                <label>assembly R5 Astromech Droid</label>
+                <description>assembly a R5 astromech droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_R5_Astromech_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_R5_Astromech_Droid>1</SWD_R5_Astromech_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_R6_Astromech_Droid_Recipe</defName>
+                <label>assembly R6 Astromech Droid</label>
+                <description>assembly a R6 astromech droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_R6_Astromech_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_R6_Astromech_Droid>1</SWD_R6_Astromech_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_C1_Astromech_Droid_Recipe</defName>
+                <label>assembly C1 Astromech Droid</label>
+                <description>assembly a C1 astromech droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_C1_Astromech_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_C1_Astromech_Droid>1</SWD_C1_Astromech_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_BB_Astromech_Droid_Recipe</defName>
+                <label>assembly BB Astromech Droid</label>
+                <description>assembly a BB astromech droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_BB_Astromech_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_BB_Astromech_Droid>1</SWD_BB_Astromech_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_MSE-6_Repair_Droid_Recipe</defName>
+                <label>assembly MSE-6 Repair Droid</label>
+                <description>assembly a MSE-6 repair droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_MSE-6_Repair_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_MSE-6_Repair_Droid>1</SWD_MSE-6_Repair_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_GNK_Power_Droid_Recipe</defName>
+                <label>assembly GNK Power Droid</label>
+                <description>assembly a GNK power droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_GNK_Power_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_GNK_Power_Droid>1</SWD_GNK_Power_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>35</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>4</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Chemfuel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>8</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_EG_Power_Droid_Recipe</defName>
+                <label>assembly EG Power Droid</label>
+                <description>assembly a EG power droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_EG_Power_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>SimpleMechtech</researchPrerequisite>
+                <products>
+                  <SWD_EG_Power_Droid>1</SWD_EG_Power_Droid>
+                </products>
+                <gestationCycles>1</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>50</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>35</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreBasic</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>4</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Chemfuel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>8</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+              
+              <!--combat droids-->
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_E-XD_Infiltrator_Droid_Recipe</defName>
+                <label>assembly E-XD Infiltrator Droid</label>
+                <description>assembly a E-XD infiltrator droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_E-XD_Infiltrator_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                <products>
+                  <SWD_E-XD_Infiltrator_Droid>1</SWD_E-XD_Infiltrator_Droid>
+                </products>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreRegular</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>4</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_D-Wing_Air_Support_Droid_Recipe</defName>
+                <label>assembly D-Wing Air Support Droid</label>
+                <description>assembly a D-wing air support droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_D-Wing_Air_Support_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                <products>
+                  <SWD_D-Wing_Air_Support_Droid>1</SWD_D-Wing_Air_Support_Droid>
+                </products>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreRegular</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>4</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_GU_Guardian_Police_Droid_Recipe</defName>
+                <label>assembly GU Guardian Police Droid</label>
+                <description>assembly a GU guardian police droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_GU_Guardian_Police_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                <products>
+                  <SWD_GU_Guardian_Police_Droid>1</SWD_GU_Guardian_Police_Droid>
+                </products>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreRegular</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>4</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_KX_Security_Droid_Recipe</defName>
+                <label>assembly KX Security Droid</label>
+                <description>assembly a KX security droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_KX_Security_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                <products>
+                  <SWD_KX_Security_Droid>1</SWD_KX_Security_Droid>
+                </products>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreRegular</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>4</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_Viper_Probe_Droid_Recipe</defName>
+                <label>assembly Viper Probe Droid</label>
+                <description>assembly a Viper probe droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_Viper_Probe_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                <products>
+                  <SWD_Viper_Probe_Droid>1</SWD_Viper_Probe_Droid>
+                </products>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreRegular</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>4</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+
+              <RecipeDef ParentName="SWD_BaseDroidRecipe">
+                <defName>SWD_DT_Sentry_Droid_Recipe</defName>
+                <label>assembly DT Sentry Droid</label>
+                <description>assembly a DT sentry droid.</description>
+                <descriptionHyperlinks>
+                  <ThingDef>SWD_DT_Sentry_Droid</ThingDef>
+                </descriptionHyperlinks>
+                <researchPrerequisite>RegularMechtech</researchPrerequisite>
+                <products>
+                  <SWD_DT_Sentry_Droid>1</SWD_DT_Sentry_Droid>
+                </products>
+                <gestationCycles>5</gestationCycles>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>75</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>100</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>SubcoreRegular</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>ComponentIndustrial</li>
+                      </thingDefs>
+                    </filter>
+                    <count>6</count>
+                  </li>
+                </ingredients>
+              </RecipeDef>
+            </value>
+          </li>
+
+          <li Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="ResurrectMediumMech"]/fixedIngredientFilter/thingDefs</xpath>
+            <value>
+              <li>Corpse_SWD_3PO_Protocol_Droid</li>
+              <li>Corpse_SWD_TC_Protocol_Droid</li>
+              <li>Corpse_SWD_3PX_Protocol_Droid</li>
+              <li>Corpse_SWD_RA-7_Protocol_Droid</li>
+              <li>Corpse_SWD_RQ_Protocol_Droid</li>
+              <li>Corpse_SWD_E-XD_Infiltrator_Droid</li>
+              <li>Corpse_SWD_DG-1B_Catering_Droid</li>
+              <li>Corpse_SWD_DLC-13_Mining_Droid</li>
+              <li>Corpse_SWD_DUM_Pit_Droid</li>
+              <li>Corpse_SWD_D-Wing_Air_Support_Droid</li>
+              <li>Corpse_SWD_IT-O_Interrogator_Droid</li>
+              <li>Corpse_SWD_KX_Security_Droid</li>
+              <li>Corpse_SWD_2-1B_Medical_Droid</li>
+              <li>Corpse_SWD_Viper_Probe_Droid</li>
+              <li>Corpse_SWD_WA-7_Waitress_Droid</li>
+              <li>Corpse_SWD_DT_Sentry_Droid</li>
+              <li>Corpse_SWD_R2_Astromech_Droid</li>
+              <li>Corpse_SWD_R3_Astromech_Droid</li>
+              <li>Corpse_SWD_R4_Astromech_Droid</li>
+              <li>Corpse_SWD_R5_Astromech_Droid</li>
+              <li>Corpse_SWD_R6_Astromech_Droid</li>
+              <li>Corpse_SWD_C1_Astromech_Droid</li>
+              <li>Corpse_SWD_BB_Astromech_Droid</li>
+              <li>Corpse_SWD_MSE-6_Repair_Droid</li>
+              <li>Corpse_SWD_GU_Guardian_Police_Droid</li>
+              <li>Corpse_SWD_EG_Power_Droid</li>
+              <li>Corpse_SWD_GNK_Power_Droid</li>
+            </value>
+          </li>
+        </operations>
+      </match>
+    <!--</nomatch>-->
+  </Operation>
+  
+</Patch>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BaseMeleeWeapon_Blunt_Quality" MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+    <defName>SWD_Commando_Droid_Personal_Shield</defName>
+    <label>commando droid personal shield</label>
+    <description>The commando droid personal shield was a hand-held energy shield used by BX droid commandos. Composed of a metal frame with an elongated hexagonal design. Although it could effectively block fire from blaster weapons, the shield offered no protection against physical matter.</description>
+    <graphicData>
+      <texPath>Weapons/Commando_Droid_Personal_Shield/Commando_Droid_Personal_Shield</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.83</drawSize>
+    </graphicData>
+    <costList>
+      <Steel>70</Steel>
+    </costList>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Flammability>0.0</Flammability>
+      <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.85</ArmorRating_Heat>
+      <WorkToMake>3600</WorkToMake>
+      <Mass>2.0</Mass>
+    </statBases>
+    <comps>
+      <li Class="VFECore.CompProperties_Shield">
+        <shieldTags>
+          <li>StarWarsShields</li>
+          <li>Commando_Droid_Personal_Shield</li>
+        </shieldTags>
+        <useDeflectMetalEffect>false</useDeflectMetalEffect>
+        <coveredBodyPartGroups>
+          <li>Neck</li>
+          <li>Torso</li>
+          <li>Arms</li>
+          <li>Hands</li>
+          <li>Legs</li>
+        </coveredBodyPartGroups>
+        <offHandGraphicData>
+          <texPath>Weapons/Commando_Droid_Personal_Shield/Commando_Droid_Personal_Shield</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.6</drawSize>
+        </offHandGraphicData>
+        <offHandHoldOffset>
+          <northDefault>
+            <offset>(0, 0, 0.2)</offset>
+            <behind>true</behind>
+          </northDefault>
+          <east>
+            <offset>(-0.1, 0, 0.2)</offset>
+            <behind>true</behind>
+          </east>
+          <south>
+            <offset>(-0.1, -0.04, 0.2)</offset>
+          </south>
+          <west>
+            <offset>(0.1, 0, 0.2)</offset>
+          </west>
+        </offHandHoldOffset>
+      </li>
+    </comps>
+    <recipeMaker>
+      <researchPrerequisite Inherit='False'>MultiAnalyzer</researchPrerequisite>
+    </recipeMaker>
+    <techLevel>Spacer</techLevel>
+    <thingCategories Inherit="False">
+      <li>VFEC_Shields</li>
+    </thingCategories>
+    <equippedStatOffsets>
+      <ShootingAccuracyPawn>-2</ShootingAccuracyPawn>
+      <MeleeHitChance>-2</MeleeHitChance>
+      <MeleeDodgeChance>-5</MeleeDodgeChance>
+    </equippedStatOffsets>
+    <thingClass>VFECore.Apparel_Shield</thingClass>
+    <apparel>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+      <bodyPartGroups>
+        <li>LeftHand</li>
+      </bodyPartGroups>
+      <layers>
+        <li>VFEC_OuterShell</li>
+      </layers>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+    </apparel>
+    <equippedAngleOffset>-30</equippedAngleOffset>
+    <tools>
+      <li>
+        <label>base</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>centre</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+</Defs>

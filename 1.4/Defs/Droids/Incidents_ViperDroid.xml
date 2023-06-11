@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+    <defName>SWD_ViperDroid_Pod</defName>
+    <label>viper probe droid</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>SWD_StarWars_Droids.SWD_ViperDroidPodLanding</workerClass>
+    <baseChance>1.5</baseChance>
+    <minRefireDays>60</minRefireDays>
+    <category>ThreatSmall</category>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>SWD_RaidEnemy_ViperDroid</defName>
+    <label>enemy raid (viper probe droid)</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>IncidentWorker_RaidEnemy</workerClass>
+    <baseChance>0</baseChance>
+    <category>ThreatBig</category>
+    <pointsScaleable>true</pointsScaleable>
+    <tale>SWD_Raid_ViperDroid</tale>
+  </IncidentDef>
+
+  <TaleDef>
+    <defName>SWD_Raid_ViperDroid</defName>
+    <label>raid (viper probe droid)</label>
+    <taleClass>Tale_SinglePawn</taleClass>
+    <type>Volatile</type>
+    <baseInterest>5</baseInterest>
+    <rulePack>
+      <rulesStrings>
+        <li>tale_noun->a viper probe droid informed [Enemy] about [Community]'s location</li>
+        <li>tale_noun->a viper probe droid beamed a transmission to attack [PAWN_nameDef]'s [Community]</li>
+        <li>tale_noun->an raid on [PAWN_nameDef]'s [Community] because of a viper probe droid</li>
+        <li>tale_noun->an assault on [PAWN_nameDef]'s [Community] because of a viper probe droid</li>
+        <li>image->[Quantity_adjphrase] [Enemy]s [circumstance_phrase]</li>
+        <li>image->an army [circumstance_phrase]</li>
+        <li>image->an overwhelming force [circumstance_phrase]</li>
+        <li>image->an invading force [circumstance_phrase]</li>
+        <li>image->stylized [Color] banners [circumstance_phrase]</li>
+        <li>image->an enormous [Enemy] [circumstance_phrase]</li>
+        <li>circumstance_phrase->advancing over a [TerrainFeature]</li>
+        <li>circumstance_phrase->completely encircling a [Community]</li>
+        <li>circumstance_phrase->attacking [Quantity_adjphrase] [PersonJob]s</li>
+        <li>circumstance_phrase->roaring in victory</li>
+        <li>circumstance_phrase->brandishing [Weapon]s</li>
+        <li>circumstance_phrase->covered in [Gore]</li>
+        <li>desc_sentence->[PAWN_nameDef] organizes a resistance while [defender_circumstance].</li>
+        <li>desc_sentence->[PAWN_nameDef] wields a [Weapon] defensively while [defender_circumstance].</li>
+        <li>desc_sentence->[PAWN_nameDef] lies on the ground, wounded.</li>
+        <li>desc_sentence->[PAWN_nameDef] retaliates with [PAWN_possessive] [Weapon] while [defender_circumstance].</li>
+        <li>desc_sentence->[PAWN_nameDef] stands as tall as a building, [defender_circumstance].</li>
+        <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveBadass] expression.</li>
+        <li>desc_sentence->[PAWN_nameDef] wears a [AdjectiveAngsty] expression.</li>
+        <li>desc_sentence->The ground is coated in [Gore].</li>
+        <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s flee the area.</li>
+        <li>desc_sentence->[Quantity_adjphrase] [Animal]s flee the area.</li>
+        <li>defender_circumstance->shouting triumphantly</li>
+        <li>defender_circumstance->glowing [Color]</li>
+        <li>defender_circumstance->raising a fist in defiance</li>
+        <li>defender_circumstance->flexing [PAWN_possessive] muscles</li>
+      </rulesStrings>
+    </rulePack>
+  </TaleDef>
+
+</Defs>
