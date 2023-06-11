@@ -1,7 +1,7 @@
 Mod Content:
 
 Droids:
-.3PO Protocol Droid
+.3PO Protocol Droid\n
 .3PX Protocol Droid
 .TC Protocol Droid
 .RA-7 Protocol Droid
