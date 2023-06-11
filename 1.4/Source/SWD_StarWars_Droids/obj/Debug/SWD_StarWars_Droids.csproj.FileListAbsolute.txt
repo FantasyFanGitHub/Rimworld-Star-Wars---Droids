@@ -1,4 +1,0 @@
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Star Wars - Droids\1.4\Assemblies\SWD_StarWars_Droids.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Star Wars - Droids\1.4\Source\SWD_StarWars_Droids\obj\Debug\SWD_StarWars_Droids.csproj.CoreCompileInputs.cache
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Star Wars - Droids\1.4\Source\SWD_StarWars_Droids\obj\Debug\SWD_StarWars_Droids.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Star Wars - Droids\1.4\Source\SWD_StarWars_Droids\obj\Debug\SWD_StarWars_Droids.csprojAssemblyReference.cache
