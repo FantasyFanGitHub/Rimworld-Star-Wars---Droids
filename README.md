@@ -8,7 +8,7 @@
 - RQ Protocol Droid
 - E-XD Infiltrator Droid
 	- can switch between protocol and combat mode
-	- explode after death
+	- explodes after death
 	- equiped with verb_shot when in combat mode
 - BB Astromech Droid
 - C1 Astromech Droid
@@ -47,7 +47,7 @@
 - EG Power Droid
 	- both power droids fill nearby batteries and consume/eats chemfuel (same amount as chemfuel generator)
 	- explode after death
-	- is draftable
+	- are draftable
 
 ## With Vanilla Faction Expanded - Mechanoids:
 - new charging stations in "Misc" tab
