@@ -696,13 +696,12 @@
         <applyToAGivenBodypart>true</applyToAGivenBodypart>
         <part>SWD_Basic_Processor</part>
       </li>
-      <!--<li Class="SWD_StarWars_Droids.SWD_CompProperties_ChangeGraphic">
+      <li Class="AnimalBehaviours.CompProperties_GraphicByHediff">
         <hediffDef>SWD_E_XD_Combat_Mode</hediffDef>
-        <texPath>Mechanoid/E-XD_Infiltrator_Droid</texPath>
-        <drawSize>1.8</drawSize>
-        <changeGraphicsInterval>150</changeGraphicsInterval>
-        <color>(65, 115, 145)</color>
-      </li>-->
+        <newImagePath>Mechanoid/E-XD_Infiltrator_Droid</newImagePath>
+        <changeGraphicsInterval>240</changeGraphicsInterval>
+	<useCutoutComplex>true</useCutoutComplex>
+      </li>
     </comps>
     <race>
       <baseBodySize>1.1</baseBodySize>
@@ -1982,10 +1981,11 @@
         <requiresTamed>false</requiresTamed>
         <incidentToCause>SWD_RaidEnemy_ViperDroid</incidentToCause>
       </li>
-      <!--<li Class="SWD_StarWars_Droids.SWD_CompProperties_FactionAfterHealthLoss">
+      <li Class="AnimalBehaviours.CompProperties_FactionAfterHealthLoss">
         <healthPercent>99</healthPercent>
         <tickInterval>50</tickInterval>
-      </li>-->
+	<attackColony>true</attackColony>
+      </li>
     </comps>
     <verbs>
       <li>
