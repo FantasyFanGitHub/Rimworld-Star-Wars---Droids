@@ -5,7 +5,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>SWD_COO_Cook_Droid</defName>
 		<label>COO Cook Droid</label>
-		<description>The COO cook droid is a chef droid created as a joint venture between Industrial Automaton and Publictechnic before the Clone Wars. The droid model comes equipped with over a dozen arms, which are equipped with common cooking tools such as spatulas, knives, and spoons. Designed for catering on a large scale the droids comes with only a few recipes. Cooks one more meal than the standard bulk recipes out of the same amount of ingredients.</description>
+		<description>The COO cook droid is a chef droid created as a joint venture between Industrial Automaton and Publictechnic before the Clone Wars. The droid model comes equipped with over a dozen arms, which are equipped with common cooking tools such as spatulas, knives, and spoons. Designed for catering on a large scale the droids comes with only a few recipes. Cooks one more meal than the standard bulk recipes out of the same amount of ingredients. Ingredients have to be placed in an adjacent hopper.</description>
 		<thingClass>ItemProcessor.Building_ItemProcessor</thingClass>
 		<graphicData>
 			<texPath>Mechanoid/COO_Cook_Droid</texPath>
